@@ -10,7 +10,8 @@
         "laravel/breeze": "^1.28",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "permittedleader/tiffey": "~1.0.0-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -32,6 +33,22 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+        }
+    },
+    "repositories": {
+        "forms-for-laravel": {
+            "type": "path",
+            "url": "../laraforms",
+            "options": {
+                "symlink": true
+            }
+        },
+        "tiffey": {
+            "type": "path",
+            "url": "../tiffey",
+            "options": {
+                "symlink": true
+            }
         }
     },
     "scripts": {
