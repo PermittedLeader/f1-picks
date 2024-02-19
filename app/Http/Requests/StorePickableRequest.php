@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Facade\App\Models\Pickable;
 use Illuminate\Foundation\Http\FormRequest;
+use Facades\App\Models\Pickable;
 
 class StorePickableRequest extends FormRequest
 {
@@ -12,7 +12,7 @@ class StorePickableRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->authorize('create',Pickable::class);
+        return $this->user()->can('create',Pickable::getFacadeRoot());
     }
 
     /**

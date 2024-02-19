@@ -37,7 +37,7 @@ class PickablePolicy
      */
     public function update(User $user, Pickable $pickable): bool
     {
-        return $user->can('updade pickables',$pickable);
+        return $user->can('edit pickables',$pickable);
     }
 
     /**
@@ -61,6 +61,6 @@ class PickablePolicy
      */
     public function forceDelete(User $user, Pickable $pickable): bool
     {
-        return $user->can('forceDelete pickable',$pickable);
+        return $user->can('forceDelete pickables',$pickable);
     }
 }

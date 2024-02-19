@@ -11,11 +11,12 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "permittedleader/forms-for-laravel": "~1.0.0-dev",
+        "permittedleader/forms-for-laravel": "~2.0.0-dev",
         "permittedleader/tiffey": "~1.0.0-dev",
         "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.10",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

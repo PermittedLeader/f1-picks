@@ -1,3 +1,3 @@
 <x-tiffey::layouts.main-layout>
-    <livewire:forms.pickable.pickableform method="create" />
+    <livewire:forms.pickable.pickable-form method="create" />
 </x-tiffey::layouts.main-layout>

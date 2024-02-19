@@ -32,7 +32,9 @@ class PickableController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StorePickableRequest $request)
-    {
+    {   
+        $this->authorize('create',Pickable::class);
+        
         $pickable = Pickable::create($request->validated());
 
         return redirect(route('pickable.show',$pickable));
@@ -45,7 +47,7 @@ class PickableController extends Controller
     {
         $this->authorize('view',$pickable);
 
-        return view('pickable.show');
+        return view('pickable.show',['pickable'=>$pickable]);
     }
 
     /**
@@ -55,7 +57,7 @@ class PickableController extends Controller
     {
         $this->authorize('update',$pickable);
 
-        return view('pickable.edit');
+        return view('pickable.edit',['pickable'=>$pickable]);
     }
 
     /**
