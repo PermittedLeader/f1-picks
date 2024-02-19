@@ -1,9 +1,11 @@
 <?php
 
 return [
-    'rounded' => 'rounded-tl rounded-br',
+    'rounded' => 'rounded-tl-xl rounded-br-xl',
 
-    'card-border' => 'border-t-4',
+    'card-border' => 'border-t-4 border-secondary-mid',
+
+    'border-color' => 'border-secondary-light',
 
     'colors'=>[
         "no" => "#ec008e",

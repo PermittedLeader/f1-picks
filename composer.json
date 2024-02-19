@@ -11,7 +11,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "permittedleader/tiffey": "~1.0.0-dev"
+        "permittedleader/forms-for-laravel": "~1.0.0-dev",
+        "permittedleader/tiffey": "~1.0.0-dev",
+        "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
