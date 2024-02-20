@@ -1,31 +1,31 @@
 <?php
-namespace App\Livewire\Forms\Season;
+namespace App\Livewire\Forms\League;
 
-use App\Models\Season;
+use App\Models\League;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Actions\Action;
 
-class SeasonForm extends Form
+class LeagueForm extends Form
 {
-    public Season $season;
+    public League $league;
 
-    public function mount(?Season $season)
+    public function mount(?League $league)
     {
-        if ($season != '') {
-            $this->season = $season;
+        if ($league != '') {
+            $this->league = $league;
         }
         $this->setCreateRoute(function () {
-            return route('season.store');
+            return route('league.store');
         });
         $this->setEditRoute(function () {
-            return route('season.update', ['season'=>$this->season]);
+            return route('league.update', ['league'=>$this->league]);
         });
     }
     public function fields(): array
     {
         return [
-            Text::make('name',value: $this->season->name),
+            Text::make('name',value: $this->league->name)
         ];
     }
 
@@ -33,7 +33,7 @@ class SeasonForm extends Form
     {
         return [
             Action::make('Edit')->visibileOn(['show'])->setShowRoute(function () {
-                return route('season.edit', ['season' => $this->season]);
+                return route('league.edit', ['league' => $this->league]);
             })->icon('fa-solid fa-pen-to-square'),
         ];
     }

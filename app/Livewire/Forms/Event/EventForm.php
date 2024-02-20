@@ -1,31 +1,32 @@
 <?php
-namespace App\Livewire\Forms\Season;
+namespace App\Livewire\Forms\Event;
 
-use App\Models\Season;
+use App\Models\Event;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Actions\Action;
 
-class SeasonForm extends Form
+class EventForm extends Form
 {
-    public Season $season;
+    public Event $event;
 
-    public function mount(?Season $season)
+    public function mount(?Event $event)
     {
-        if ($season != '') {
-            $this->season = $season;
+        if ($event != '') {
+            $this->event = $event;
         }
         $this->setCreateRoute(function () {
-            return route('season.store');
+            return route('event.store');
         });
         $this->setEditRoute(function () {
-            return route('season.update', ['season'=>$this->season]);
+            return route('event.update', ['event'=>$this->event]);
         });
     }
     public function fields(): array
     {
         return [
-            Text::make('name',value: $this->season->name),
+            Text::make('name',value: $this->event->name),
+            Text::make('team',value: $this->event->team)
         ];
     }
 
@@ -33,7 +34,7 @@ class SeasonForm extends Form
     {
         return [
             Action::make('Edit')->visibileOn(['show'])->setShowRoute(function () {
-                return route('season.edit', ['season' => $this->season]);
+                return route('event.edit', ['event' => $this->event]);
             })->icon('fa-solid fa-pen-to-square'),
         ];
     }
