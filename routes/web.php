@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pickable', PickableController::class);
     Route::resource('season', SeasonController::class);
+    Route::resource('league', SeasonController::class);
+    Route::resource('event', SeasonController::class);
 });
 
 require __DIR__.'/auth.php';
