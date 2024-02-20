@@ -9,8 +9,11 @@ class PickableForm extends Form
 {
     public Pickable $pickable;
 
-    public function mount()
+    public function mount(?Pickable $pickable)
     {
+        if ($pickable != '') {
+            $this->pickable = $pickable;
+        }
         $this->setCreateRoute(function () {
             return route('pickable.store');
         });

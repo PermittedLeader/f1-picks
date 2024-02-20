@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PickableController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SeasonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('pickable', PickableController::class);
+    Route::resource('season', SeasonController::class);
 });
 
 require __DIR__.'/auth.php';

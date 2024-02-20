@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.8",
         "permittedleader/forms-for-laravel": "~2.0.0-dev",
         "permittedleader/tiffey": "~1.0.0-dev",
-        "spatie/laravel-permission": "^6.3"
+        "spatie/laravel-permission": "^6.3",
+        "staudenmeir/eloquent-has-many-deep": "^1.19"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",
