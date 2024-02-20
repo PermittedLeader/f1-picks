@@ -11,7 +11,7 @@ class UpdateSeasonRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->authorize('update',$this->season);
+        return $this->user()->can('update',$this->season);
     }
 
     /**

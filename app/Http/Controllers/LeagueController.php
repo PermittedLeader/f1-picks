@@ -89,4 +89,13 @@ class LeagueController extends Controller
 
         return redirect(route('league.index'));
     }
+
+    public function join(League $league)
+    {
+        auth()->user()->leagues()->attach($league);
+
+        self::success(__('You have joined :leagueName',['leagueName'=>$league->name]),__('Welcome'));
+
+        return redirect(route('league.show',$league));
+    }
 }

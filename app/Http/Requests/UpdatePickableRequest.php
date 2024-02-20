@@ -11,7 +11,7 @@ class UpdatePickableRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->authorize('update',$this->pickable);
+        return $this->user()->can('update',$this->pickable);
     }
 
     /**

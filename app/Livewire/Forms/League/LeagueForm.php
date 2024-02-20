@@ -5,6 +5,7 @@ use App\Models\League;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Actions\Action;
+use Permittedleader\Forms\View\Components\Fields\Markdown;
 
 class LeagueForm extends Form
 {
@@ -25,7 +26,8 @@ class LeagueForm extends Form
     public function fields(): array
     {
         return [
-            Text::make('name',value: $this->league->name)
+            Text::make('name',value: $this->league->name),
+            Markdown::make('description', value: $this->league->description)
         ];
     }
 
@@ -34,7 +36,7 @@ class LeagueForm extends Form
         return [
             Action::make('Edit')->visibileOn(['show'])->setShowRoute(function () {
                 return route('league.edit', ['league' => $this->league]);
-            })->icon('fa-solid fa-pen-to-square'),
+            })->icon('fa-solid fa-pen-to-square')->gate(auth()->user()->can('update',$this->league)),
         ];
     }
 }

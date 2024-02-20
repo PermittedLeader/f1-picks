@@ -11,7 +11,7 @@ class UpdateLeagueRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->authorize('update',$this->league);
+        return $this->user()->can('update',$this->league);
     }
 
     /**

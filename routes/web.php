@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\PickableController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SeasonController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\SeasonController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PickableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/home',[HomeController::class,'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,8 +32,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pickable', PickableController::class);
     Route::resource('season', SeasonController::class);
-    Route::resource('league', SeasonController::class);
-    Route::resource('event', SeasonController::class);
+    Route::resource('league', LeagueController::class);
+    Route::get('/league/{league}/join', [LeagueController::class,'join'])->name('league.join');
+    Route::resource('event', EventController::class);
 });
 
 require __DIR__.'/auth.php';
