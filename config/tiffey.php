@@ -3,9 +3,15 @@
 return [
     'rounded' => 'rounded-tl-xl rounded-br-xl',
 
-    'card-border' => 'border-t-4 border-secondary-mid',
+    'card-border' => 'border-t-4 border-secondary-light',
 
     'border-color' => 'border-secondary-light',
+
+    'app-bg-color' => 'bg-gradient-to-br from-secondary-dark via-90% to-secondary-mid',
+
+    'app-text-color' => 'text-white',
+
+    'card-bg-color' => 'bg-white dark:bg-gray-900 dark:bg-opacity-25',
 
     'colors'=>[
         "no" => "#ec008e",
