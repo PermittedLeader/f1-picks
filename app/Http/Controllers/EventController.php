@@ -43,7 +43,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $this->authorize('show',$event);
+        $this->authorize('view',$event);
 
         return view('event.show',compact('event'));
     }
@@ -55,7 +55,7 @@ class EventController extends Controller
     {
         $this->authorize('update',$event);
 
-        return view('event.edit',compact('event'))
+        return view('event.edit',compact('event'));
     }
 
     /**

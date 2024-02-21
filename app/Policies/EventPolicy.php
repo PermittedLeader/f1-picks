@@ -2,8 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Event;
 use App\Models\User;
+use App\Models\Event;
+use Illuminate\Support\Carbon;
 use Illuminate\Auth\Access\Response;
 
 class EventPolicy
@@ -13,7 +14,7 @@ class EventPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->can('list events');
     }
 
     /**
@@ -21,7 +22,7 @@ class EventPolicy
      */
     public function view(User $user, Event $event): bool
     {
-        //
+        return $user->can('view events',$event);
     }
 
     /**
@@ -29,7 +30,7 @@ class EventPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->can('create events');
     }
 
     /**
@@ -37,7 +38,7 @@ class EventPolicy
      */
     public function update(User $user, Event $event): bool
     {
-        //
+        return $user->can('edit events',$event);
     }
 
     /**
@@ -45,7 +46,7 @@ class EventPolicy
      */
     public function delete(User $user, Event $event): bool
     {
-        //
+        return $user->can('delete events',$event);
     }
 
     /**
@@ -53,7 +54,7 @@ class EventPolicy
      */
     public function restore(User $user, Event $event): bool
     {
-        //
+        return $user->can('restore events',$event);
     }
 
     /**
@@ -61,6 +62,16 @@ class EventPolicy
      */
     public function forceDelete(User $user, Event $event): bool
     {
-        //
+        return $user->can('forceDelete events',$event);
+    }
+
+    public function makePick(User $user, Event $event):bool
+    {
+        return $event->pick_date > Carbon::now() ? true : false;
+    }
+
+    public function changePick(User $user, Event $event):bool
+    {
+        return $event->pick_date > Carbon::now() ? true : false;
     }
 }

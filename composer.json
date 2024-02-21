@@ -54,6 +54,17 @@
             "options": {
                 "symlink": true
             }
+        },
+        "tables-for-laravel": {
+            "type": "path",
+            "url": "../tables-for-laravel",
+            "options": {
+                "symlink": true
+            }
+        },
+        "permittedleader/flash-messages": {
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/flash-messages.git"
         }
     },
     "scripts": {

@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 class League extends Model
 {
-    use HasFactory, Validatable, SoftDeletes;
+    use HasFactory, Validatable, SoftDeletes, HasRelationships;
 
     protected $fillable = [
         'name',
@@ -51,5 +52,10 @@ class League extends Model
         $builder->whereDoesntHave("members", function ($query) use ($user) {
             $query->where("users.id", $user->id);
         })->get();
+    }
+
+    public function events()
+    {
+        return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->events())->withIntermediate(Season::class,['id','name'])->distinct();
     }
 }
