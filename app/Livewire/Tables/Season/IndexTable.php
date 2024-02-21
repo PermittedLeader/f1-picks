@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Livewire\Tables\League;
+namespace App\Livewire\Tables\Season;
 
 use App\Models\League;
+use App\Models\Season;
 use App\Traits\FlashMessages;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\TablesForLaravel\Http\Livewire\Table;
+use Permittedleader\TablesForLaravel\View\Components\Actions\Action;
 use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
+use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
 
-class MembersTable extends Table
+class IndexTable extends Table
 {
     public bool $isSearchable = false;
 
@@ -16,13 +19,9 @@ class MembersTable extends Table
 
     public bool $isFilterable = false;
 
-    public League $league;
-
-    public string $exportName = 'users-export';
-
     public function query(): Builder
     {
-        return $this->league->members();
+        return Season::query();
     }
 
     public function columns(): array
@@ -34,6 +33,10 @@ class MembersTable extends Table
 
     public function actions(): array
     {
-        return [];
+        return [
+            Action::show('season.show'),
+            Action::edit('season.edit'),
+            Action::delete('season.destroy'),
+        ];
     }
 }

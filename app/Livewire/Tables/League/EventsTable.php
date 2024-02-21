@@ -13,8 +13,6 @@ use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
 
 class EventsTable extends Table
 {
-    use FlashMessages;
-
     public bool $isSearchable = false;
 
     public bool $isExportable = false;
