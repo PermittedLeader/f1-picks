@@ -69,7 +69,7 @@ class Event extends Model
 
     public function availablePicks(League $league)
     {
-        $userPicks = auth()->user()->picks()->where('league_id',$league->id)->get()->pluck('id');
-        return $this->pickables()->whereNotIn('id',$userPicks)->get();
+        $userPicks = auth()->user()->picks()->where('league_id',$league->id)->get()->pluck('pickable.id');
+        return $this->pickables()->whereNotIn('pickables.id',$userPicks)->get();
     }
 }
