@@ -1377,16 +1377,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.45.0",
+            "version": "v10.45.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "8b08d8cd79f8093eb51a8c59e21647bedfbf05f2"
+                "reference": "dcf5d1d722b84ad38a5e053289130b6962f830bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/8b08d8cd79f8093eb51a8c59e21647bedfbf05f2",
-                "reference": "8b08d8cd79f8093eb51a8c59e21647bedfbf05f2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dcf5d1d722b84ad38a5e053289130b6962f830bd",
+                "reference": "dcf5d1d722b84ad38a5e053289130b6962f830bd",
                 "shasum": ""
             },
             "require": {
@@ -1579,7 +1579,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-02-20T15:32:48+00:00"
+            "time": "2024-02-21T14:07:36+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3127,7 +3127,7 @@
             "dist": {
                 "type": "path",
                 "url": "../laraforms",
-                "reference": "0bf8ece3d4d20f7b5b101d8d15a9c999df37b3c6"
+                "reference": "3f869ad57ff17b9ccfa0397d0f9751c5ec896d07"
             },
             "require": {
                 "laravel/framework": "^10.0",
@@ -3181,7 +3181,7 @@
             "dist": {
                 "type": "path",
                 "url": "../tables-for-laravel",
-                "reference": "ad07ffb80506a1db6c862e4ae13ae97850144f04"
+                "reference": "7fd2232b293914b7f400fd04359597b81b030a5d"
             },
             "require": {
                 "laravel/framework": "^10.44",
@@ -3233,7 +3233,7 @@
             "dist": {
                 "type": "path",
                 "url": "../tiffey",
-                "reference": "31e7ed5a4aa5dae1fd68d1b506a719915411a42a"
+                "reference": "63f0009c5a94d9af712ed6c05dd04d3a35144bbf"
             },
             "require": {
                 "laravel/framework": "^10.0"

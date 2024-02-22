@@ -26,7 +26,8 @@ class EventForm extends Form
     {
         return [
             Text::make('name',value: $this->event->name),
-            Text::make('team',value: $this->event->team)
+            Text::make('date', value: $this->event->date),
+            Text::make('pick_date', 'Pick by...', value: $this->event->pick_date),
         ];
     }
 

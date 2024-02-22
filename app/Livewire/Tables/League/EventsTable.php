@@ -13,11 +13,11 @@ use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
 
 class EventsTable extends Table
 {
-    public bool $isSearchable = false;
+    public bool $isSearchable = true;
 
     public bool $isExportable = false;
 
-    public bool $isFilterable = false;
+    public bool $isFilterable = true;
 
     public League $league;
 
@@ -29,8 +29,8 @@ class EventsTable extends Table
     public function columns(): array
     {
         return [
-            Column::make('name')->sortable(),
-            BelongsToMany::make('seasons')->model(Season::class),
+            Column::make('name')->sortable()->filterable(),
+            BelongsToMany::make('seasons')->model(Season::class)->filterable(),
             Column::make('date')->component('date')->sortable(),
             Column::make('pick_date','Pick by')->component('timeDiffFOrHumans')->sortable(),
         ];
@@ -40,7 +40,9 @@ class EventsTable extends Table
     {
         return [
             Action::make('event.show',"Change Pick...")->icon('fa-solid fa-shuffle')->gate('changePick'),
-            Action::make('event.show',"Pick...")->icon('fa-solid fa-arrows-to-dot')->gate('makePick')
+            Action::make(function($data){
+                return route('pick.create',['event'=>$data,'league'=>$this->league->id]);
+            },"Pick...")->icon('fa-solid fa-arrows-to-dot')->gate('makePick')
         ];
     }
 }

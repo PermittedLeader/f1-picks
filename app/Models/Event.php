@@ -5,15 +5,18 @@ namespace App\Models;
 use Carbon\Carbon;
 use App\Traits\Validatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Permittedleader\TablesForLaravel\Traits\Searchable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Event extends Model
 {
-    use HasFactory, Validatable, SoftDeletes, HasRelationships;
+    use HasFactory, Validatable, SoftDeletes, HasRelationships, Searchable;
+
+    protected $searchableFields = ['*'];
 
     public $fillable = [
         'name',
@@ -62,5 +65,11 @@ class Event extends Model
     public function pickables()
     {
         return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->pickables());
+    }
+
+    public function availablePicks(League $league)
+    {
+        $userPicks = auth()->user()->picks()->where('league_id',$league->id)->get()->pluck('id');
+        return $this->pickables()->whereNotIn('id',$userPicks)->get();
     }
 }
