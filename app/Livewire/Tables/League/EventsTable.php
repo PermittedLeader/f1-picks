@@ -20,6 +20,8 @@ class EventsTable extends Table
 
     public bool $isFilterable = true;
 
+    public string $sortBy = 'pick_date';
+
     public League $league;
 
     public function query(): Builder
@@ -31,7 +33,9 @@ class EventsTable extends Table
     {
         return [
             Column::make('name')->sortable()->filterable(),
-            BelongsToMany::make('seasons')->model(Season::class)->filterable(),
+            Column::make('season')->formatDisplay(function($value){
+                return $value->name;
+            }),
             Column::make('date')->component('date')->sortable(),
             Column::make('pick_date','Pick by')->component('timeDiffFOrHumans')->sortable(),
         ];
@@ -40,18 +44,20 @@ class EventsTable extends Table
     public function actions(): array
     {
         return [
-            Action::make('event.show',"Change Pick...")
+            Action::make(function($data){
+                return route('pick.edit',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season,'pick'=>1]);
+            },"Change Pick...")
                 ->icon('fa-solid fa-shuffle')
                 ->gate(function($data){
-                    return auth()->user()->can('changePick',[$data,$this->league,$data->seasons->first()]);
+                    return auth()->user()->can('changePick',[$data,$this->league,$data->season]);
                 }),
             Action::make(function($data){
-                return route('pick.create',['event'=>$data,'league'=>$this->league->id,'season'=>$data->seasons->first()]);
+                return route('pick.create',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season]);
             },"Pick...")
                 ->icon('fa-solid fa-arrows-to-dot')
                 ->gate(
                     function($data){
-                        return auth()->user()->can('makePick',[$data,$this->league,$data->seasons->first()]);
+                        return auth()->user()->can('makePick',[$data,$this->league,$data->season]);
                     }
                 )
         ];

@@ -11,7 +11,7 @@ class UpdatePickRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->can('update',[$this->pick,$this->event, $this->league, $this->season]);
     }
 
     /**
@@ -21,8 +21,6 @@ class UpdatePickRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return $this->pick->rules();
     }
 }

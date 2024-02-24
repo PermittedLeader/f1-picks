@@ -67,9 +67,13 @@ class Event extends Model
         return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->pickables());
     }
 
-    public function availablePicks(League $league)
+    public function availablePicks(League $league, Season $season)
     {
-        $userPicks = auth()->user()->picks()->where('league_id',$league->id)->get()->pluck('pickable.id');
+        $userPicks = auth()->user()
+                        ->picks()
+                        ->where('league_id',$league->id)
+                        ->where('season_id',$season->id)
+                        ->get()->pluck('pickable.id');
         return $this->pickables()->whereNotIn('pickables.id',$userPicks)->get();
     }
 }

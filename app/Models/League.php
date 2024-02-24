@@ -56,6 +56,6 @@ class League extends Model
 
     public function events()
     {
-        return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->events())->withIntermediate(Season::class,['id','name'])->distinct();
+        return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->events())->withIntermediate(Season::class,['id','name']);
     }
 }

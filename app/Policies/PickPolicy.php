@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\League;
 use App\Models\Season;
+use Carbon\Carbon;
 use Illuminate\Auth\Access\Response;
 
 class PickPolicy
@@ -35,17 +36,29 @@ class PickPolicy
         if($user->leagues->contains($league) && $league->events->contains($event) && $user->picks()->where('event_id',$event)
         ->where('league_id',$league)
         ->where('season_id',$season)
-        ->count() == 0){
+        ->count() == 0 && $event->pick_date > Carbon::now()){
             return true;
         }
         return $user->hasPermissionTo('create picks');
     }
 
     /**
-     * Determine whether the user can update the model.
+     * Determine whether the user can create models.
      */
-    public function update(User $user, Pick $pick): bool
+    public function update(User $user, Pick $pick, Event $event, League $league, Season $season): bool
     {
+        return $event->pick_date > Carbon::now();
+        if(
+            $user->leagues->contains($league) && 
+            $league->events->contains($event) && 
+            $pick->user_id == $user->id && 
+            $user->picks()->where('event_id',$event)
+                ->where('league_id',$league)
+                ->where('season_id',$season)
+                ->count() > 0 && 
+            $event->pick_date > Carbon::now()){
+            return true;
+        }
         return $user->hasPermissionTo('edit picks');
     }
 

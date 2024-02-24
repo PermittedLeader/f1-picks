@@ -58,20 +58,18 @@ class PickController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pick $pick)
+    public function edit(Pick $pick,League $league, Season $season, Event $event)
     {
-        $this->authorize('update',$pick);
+        $this->authorize('update',[$pick, $event, $league,$season]);
 
-        return view('pick.edit', compact('pick'));
+        return view('pick.edit', compact('pick','event','league','season'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePickRequest $request, Pick $pick)
-    {
-        $this->authorize('update',$pick);
-        
+    public function update(UpdatePickRequest $request, Pick $pick, League $league, Season $season, Event $event)
+    {   
         $pick->update($request->validated());
 
         self::success($pick->name.' '.__('has been successfully updated'));

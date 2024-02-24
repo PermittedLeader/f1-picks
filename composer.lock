@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b88e03d6740cfdd14ea00ef8ae721aef",
+    "content-hash": "ce3acefed3bbf853b1ce6fa50989b133",
     "packages": [
         {
             "name": "brick/math",
@@ -3123,11 +3123,17 @@
         },
         {
             "name": "permittedleader/forms-for-laravel",
-            "version": "dev-livewire-v3",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:PermittedLeader/forms-for-laravel.git",
+                "reference": "cb47767081fda0a4f15802d85eeca200ae60e909"
+            },
             "dist": {
-                "type": "path",
-                "url": "../laraforms",
-                "reference": "3f869ad57ff17b9ccfa0397d0f9751c5ec896d07"
+                "type": "zip",
+                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/cb47767081fda0a4f15802d85eeca200ae60e909",
+                "reference": "cb47767081fda0a4f15802d85eeca200ae60e909",
+                "shasum": ""
             },
             "require": {
                 "laravel/framework": "^10.0",
@@ -3170,23 +3176,24 @@
                 }
             ],
             "description": "Forms for Laravel",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.0.0",
+                "issues": "https://github.com/PermittedLeader/forms-for-laravel/issues"
+            },
+            "time": "2024-02-21T13:31:39+00:00"
         },
         {
             "name": "permittedleader/tables-for-laravel",
-            "version": "v2.1.1",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:PermittedLeader/tables-for-laravel.git",
-                "reference": "96834c1bdc5ad37279d4c6bbb5bc872327537bc9"
+                "reference": "0dc70723758b4accc06303859c3e33fa5afcb4c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/96834c1bdc5ad37279d4c6bbb5bc872327537bc9",
-                "reference": "96834c1bdc5ad37279d4c6bbb5bc872327537bc9",
+                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/0dc70723758b4accc06303859c3e33fa5afcb4c3",
+                "reference": "0dc70723758b4accc06303859c3e33fa5afcb4c3",
                 "shasum": ""
             },
             "require": {
@@ -3194,7 +3201,7 @@
                 "livewire/livewire": "^3.0",
                 "maatwebsite/excel": "^3.1",
                 "permittedleader/flash-messages": "^2.0",
-                "permittedleader/tiffey": "~1.0.x-dev"
+                "permittedleader/tiffey": "~1.0.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^8.21",
@@ -3229,18 +3236,24 @@
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
             "support": {
-                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.1.1",
+                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.2.0",
                 "issues": "https://github.com/PermittedLeader/tables-for-laravel/issues"
             },
-            "time": "2024-02-24T09:14:22+00:00"
+            "time": "2024-02-24T20:50:04+00:00"
         },
         {
             "name": "permittedleader/tiffey",
-            "version": "dev-main",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:PermittedLeader/tiffey.git",
+                "reference": "000885e8382bec22a4cda60c965c5f7e223c30d4"
+            },
             "dist": {
-                "type": "path",
-                "url": "../tiffey",
-                "reference": "4214b72f459f281e795c64c57dc6a36949d7e541"
+                "type": "zip",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey/zipball/000885e8382bec22a4cda60c965c5f7e223c30d4",
+                "reference": "000885e8382bec22a4cda60c965c5f7e223c30d4",
+                "shasum": ""
             },
             "require": {
                 "laravel/framework": "^10.0"
@@ -3278,10 +3291,11 @@
                     "email": "159888845+PermittedLeader@users.noreply.github.com"
                 }
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/PermittedLeader/tiffey/tree/v1.0.0",
+                "issues": "https://github.com/PermittedLeader/tiffey/issues"
+            },
+            "time": "2024-02-24T09:43:01+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",

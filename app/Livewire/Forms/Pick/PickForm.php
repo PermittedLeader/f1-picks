@@ -33,7 +33,7 @@ class PickForm extends Form
     public function fields(): array
     {
         return [
-            BelongsTo::make('pickable_id','Your pick...')->options($this->event->availablePicks($this->league)),
+            BelongsTo::make('pickable_id','Your pick...')->options($this->event->availablePicks($this->league, $this->season)),
             Hidden::make('league_id',value: $this->league->id),
             Hidden::make('event_id',value: $this->event->id),
             Hidden::make('season_id',value: $this->season->id)
