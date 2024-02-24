@@ -12,7 +12,7 @@ class StorePickRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('create picks',['event'=>$this->event, 'league'=>$this->league]);
+        return $this->user()->can('create',[(Pick::getFacadeRoot())::class,$this->event, $this->league, $this->season]);
     }
 
     /**

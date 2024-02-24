@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.8",
         "permittedleader/forms-for-laravel": "~2.0.0-dev",
         "permittedleader/tiffey": "~1.0.0-dev",
-        "permittedleader/tables-for-laravel": "~1.0.0-dev",
+        "permittedleader/tables-for-laravel": "^2.0",
         "spatie/laravel-permission": "^6.3",
         "staudenmeir/eloquent-has-many-deep": "^1.19"
     },
@@ -42,25 +42,16 @@
     },
     "repositories": {
         "forms-for-laravel": {
-            "type": "path",
-            "url": "../laraforms",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/forms-for-laravel.git"
         },
         "tiffey": {
-            "type": "path",
-            "url": "../tiffey",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/tiffey.git"
         },
         "tables-for-laravel": {
-            "type": "path",
-            "url": "../tables-for-laravel",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/tables-for-laravel.git"
         },
         "permittedleader/flash-messages": {
             "type": "vcs",

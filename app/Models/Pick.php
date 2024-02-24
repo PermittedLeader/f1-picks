@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\Validatable;
+use Illuminate\Validation\Rule;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,14 +18,24 @@ class Pick extends Model
         'event_id',
         'league_id',
         'pickable_id',
+        'season_id',
         'user_id'
     ];
 
     public function rules(): array
     {
         return [
-            'event_id'=>'required|exists:events,id',
+            'event_id'=>[
+                'required',
+                'exists:events,id',
+                Rule::unique('picks')->where(function (Builder $query){
+                    $query->where('league_id',$this->league);
+                    $query->where('season_id',$this->season);
+                    $query->where('user_id', auth()->id());
+                })
+            ],
             'league_id'=>'required|exists:leagues,id',
+            'season_id'=>'required|exists:seasons,id',
             'pickable_id'=>'required|exists:pickables,id',
             'user_id'=>'required|exists:users,id'
         ];

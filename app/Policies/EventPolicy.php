@@ -4,6 +4,8 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\Event;
+use App\Models\League;
+use App\Models\Season;
 use Illuminate\Support\Carbon;
 use Illuminate\Auth\Access\Response;
 
@@ -65,13 +67,30 @@ class EventPolicy
         return $user->can('forceDelete events',$event);
     }
 
-    public function makePick(User $user, Event $event):bool
+    public function makePick(User $user, Event $event, League $league, Season $season):bool
     {
-        return $event->pick_date > Carbon::now() ? true : false;
+        if($event->pick_date < Carbon::now()){
+            return false;
+        };
+        return $user->picks()->where('event_id',$event->id)
+            ->where('league_id',$league->id)
+            ->where('season_id',$season->id)
+            ->count() == 0 ? true : false;
     }
 
-    public function changePick(User $user, Event $event):bool
+    public function changePick(
+        User $user, 
+        Event $event, 
+        League $league, 
+        Season $season
+    ):bool
     {
-        return $event->pick_date > Carbon::now() ? true : false;
+        if($event->pick_date < Carbon::now()){
+            return false;
+        };
+        return $user->picks()->where('event_id',$event->id)
+            ->where('league_id',$league->id)
+            ->where('season_id',$season->id)
+            ->count() > 0 ? true : false;
     }
 }

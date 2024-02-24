@@ -6,6 +6,7 @@ use App\Models\Pick;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\League;
+use App\Models\Season;
 use Illuminate\Auth\Access\Response;
 
 class PickPolicy
@@ -15,7 +16,7 @@ class PickPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('list picks');
+        return $user->hasPermissionTo('list picks');
     }
 
     /**
@@ -23,20 +24,21 @@ class PickPolicy
      */
     public function view(User $user, Pick $pick): bool
     {
-        return $user->can('list picks',$pick);
+        return $user->hasPermissionTo('list picks');
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user, Event $event, League $league): bool
+    public function create(User $user, Event $event, League $league, Season $season): bool
     {
         if($user->leagues->contains($league) && $league->events->contains($event) && $user->picks()->where('event_id',$event)
         ->where('league_id',$league)
+        ->where('season_id',$season)
         ->count() == 0){
             return true;
         }
-        return $user->can('create picks');
+        return $user->hasPermissionTo('create picks');
     }
 
     /**
@@ -44,7 +46,7 @@ class PickPolicy
      */
     public function update(User $user, Pick $pick): bool
     {
-        return $user->can('edit picks',$pick);
+        return $user->hasPermissionTo('edit picks');
     }
 
     /**
@@ -52,7 +54,7 @@ class PickPolicy
      */
     public function delete(User $user, Pick $pick): bool
     {
-        return $user->can('delete picks',$pick);
+        return $user->hasPermissionTo('delete picks');
     }
 
     /**
@@ -60,7 +62,7 @@ class PickPolicy
      */
     public function restore(User $user, Pick $pick): bool
     {
-        return $user->can('restore picks',$pick);
+        return $user->hasPermissionTo('restore picks');
     }
 
     /**
@@ -68,6 +70,6 @@ class PickPolicy
      */
     public function forceDelete(User $user, Pick $pick): bool
     {
-        return $user->can('forceDelete picks',$pick);
+        return $user->hasPermissionTo('forceDelete picks');
     }
 }

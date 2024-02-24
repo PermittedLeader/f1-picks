@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Tables\League;
 
+use App\Models\Pick;
 use App\Models\League;
 use App\Models\Season;
 use App\Traits\FlashMessages;
@@ -39,10 +40,20 @@ class EventsTable extends Table
     public function actions(): array
     {
         return [
-            Action::make('event.show',"Change Pick...")->icon('fa-solid fa-shuffle')->gate('changePick'),
+            Action::make('event.show',"Change Pick...")
+                ->icon('fa-solid fa-shuffle')
+                ->gate(function($data){
+                    return auth()->user()->can('changePick',[$data,$this->league,$data->seasons->first()]);
+                }),
             Action::make(function($data){
-                return route('pick.create',['event'=>$data,'league'=>$this->league->id]);
-            },"Pick...")->icon('fa-solid fa-arrows-to-dot')->gate('makePick')
+                return route('pick.create',['event'=>$data,'league'=>$this->league->id,'season'=>$data->seasons->first()]);
+            },"Pick...")
+                ->icon('fa-solid fa-arrows-to-dot')
+                ->gate(
+                    function($data){
+                        return auth()->user()->can('makePick',[$data,$this->league,$data->seasons->first()]);
+                    }
+                )
         ];
     }
 }

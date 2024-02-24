@@ -36,9 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('league', LeagueController::class);
     Route::get('/league/{league}/join', [LeagueController::class,'join'])->name('league.join');
     Route::resource('event', EventController::class);
-    Route::get('/league/{league}/event/{event}/pick',[PickController::class, 'create'])->name('pick.create');
-    Route::post('/league/{league}/event/{event}/pick',[PickController::class, 'store'])->name('pick.store');
-    Route::post('/league/{league}/event/{event}/pick/update',[PickController::class, 'update'])->name('pick.update');
+    Route::get('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'create'])->name('pick.create');
+    Route::post('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'store'])->name('pick.store');
+    Route::post('/league/{league}/season/{season}/event/{event}/pick/update',[PickController::class, 'update'])->name('pick.update');
 });
 
 require __DIR__.'/auth.php';

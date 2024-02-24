@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\League;
 use App\Http\Requests\StorePickRequest;
 use App\Http\Requests\UpdatePickRequest;
+use App\Models\Season;
 use Illuminate\Support\Facades\Request;
 
 class PickController extends Controller
@@ -24,17 +25,18 @@ class PickController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(League $league, Event $event)
+    public function create(League $league, Season $season, Event $event)
     {
-        $this->authorize('create picks',compact('event','league'));
+        $data = compact('event','league','season');
+        $this->authorize('create',[Pick::class,$event,$league,$season]);
 
-        return view('pick.create',compact('event','league'));
+        return view('pick.create',$data);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePickRequest $request,League $league, Event $event)
+    public function store(StorePickRequest $request,League $league, Season $season, Event $event)
     {
         $pick = Pick::create($request->validated());
 

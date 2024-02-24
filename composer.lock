@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b218e397a0034f533cfde6d98e32b86a",
+    "content-hash": "b88e03d6740cfdd14ea00ef8ae721aef",
     "packages": [
         {
             "name": "brick/math",
@@ -2926,16 +2926,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.0.0",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "4a21235f7e56e713259a6f76bf4b5ea08502b9dc"
+                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4a21235f7e56e713259a6f76bf4b5ea08502b9dc",
-                "reference": "4a21235f7e56e713259a6f76bf4b5ea08502b9dc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2218c2252c874a4624ab2f613d86ac32d227bc69",
+                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69",
                 "shasum": ""
             },
             "require": {
@@ -2978,9 +2978,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.1"
             },
-            "time": "2024-01-07T17:17:35+00:00"
+            "time": "2024-02-21T19:24:10+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -3070,16 +3070,16 @@
         },
         {
             "name": "permittedleader/flash-messages",
-            "version": "v1.0.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:PermittedLeader/flash-messages.git",
-                "reference": "0bed95619985078b3e446db762ee90924d72038c"
+                "reference": "141a9c2365933dce127af74bc77ab8303ccd7158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/flash-messages/zipball/0bed95619985078b3e446db762ee90924d72038c",
-                "reference": "0bed95619985078b3e446db762ee90924d72038c",
+                "url": "https://api.github.com/repos/PermittedLeader/flash-messages/zipball/141a9c2365933dce127af74bc77ab8303ccd7158",
+                "reference": "141a9c2365933dce127af74bc77ab8303ccd7158",
                 "shasum": ""
             },
             "require": {
@@ -3098,7 +3098,7 @@
                     ]
                 },
                 "branch-alias": {
-                    "dev-main": "1.0.x-dev"
+                    "dev-main": "1.x-dev"
                 }
             },
             "autoload": {
@@ -3116,10 +3116,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/PermittedLeader/flash-messages/tree/v1.0.0",
+                "source": "https://github.com/PermittedLeader/flash-messages/tree/v2.0.0",
                 "issues": "https://github.com/PermittedLeader/flash-messages/issues"
             },
-            "time": "2024-02-21T12:57:32+00:00"
+            "time": "2024-02-22T22:28:24+00:00"
         },
         {
             "name": "permittedleader/forms-for-laravel",
@@ -3177,17 +3177,23 @@
         },
         {
             "name": "permittedleader/tables-for-laravel",
-            "version": "dev-main",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:PermittedLeader/tables-for-laravel.git",
+                "reference": "96834c1bdc5ad37279d4c6bbb5bc872327537bc9"
+            },
             "dist": {
-                "type": "path",
-                "url": "../tables-for-laravel",
-                "reference": "7fd2232b293914b7f400fd04359597b81b030a5d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/96834c1bdc5ad37279d4c6bbb5bc872327537bc9",
+                "reference": "96834c1bdc5ad37279d4c6bbb5bc872327537bc9",
+                "shasum": ""
             },
             "require": {
                 "laravel/framework": "^10.44",
                 "livewire/livewire": "^3.0",
                 "maatwebsite/excel": "^3.1",
-                "permittedleader/flash-messages": "~1.0.0",
+                "permittedleader/flash-messages": "^2.0",
                 "permittedleader/tiffey": "~1.0.x-dev"
             },
             "require-dev": {
@@ -3222,10 +3228,11 @@
                 }
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.1.1",
+                "issues": "https://github.com/PermittedLeader/tables-for-laravel/issues"
+            },
+            "time": "2024-02-24T09:14:22+00:00"
         },
         {
             "name": "permittedleader/tiffey",
@@ -3233,7 +3240,7 @@
             "dist": {
                 "type": "path",
                 "url": "../tiffey",
-                "reference": "63f0009c5a94d9af712ed6c05dd04d3a35144bbf"
+                "reference": "4214b72f459f281e795c64c57dc6a36949d7e541"
             },
             "require": {
                 "laravel/framework": "^10.0"
@@ -8444,21 +8451,21 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "bc3dc91a5e9b14aa06d1d9e90647c5c5a2cc5353"
+                "reference": "153ae662783729388a584b4361f2545e4d841e3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/bc3dc91a5e9b14aa06d1d9e90647c5c5a2cc5353",
-                "reference": "bc3dc91a5e9b14aa06d1d9e90647c5c5a2cc5353",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/153ae662783729388a584b4361f2545e4d841e3c",
+                "reference": "153ae662783729388a584b4361f2545e4d841e3c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/deprecations": "^1.0",
-                "php": "^7.4 || ^8.0",
+                "php": "^7.3 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0",
                 "phpstan/phpdoc-parser": "^1.13"
             },
@@ -8496,22 +8503,22 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.8.1"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.8.2"
             },
-            "time": "2024-01-18T19:15:27+00:00"
+            "time": "2024-02-23T11:10:43+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.25.0",
+            "version": "1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "bd84b629c8de41aa2ae82c067c955e06f1b00240"
+                "reference": "231e3186624c03d7e7c890ec662b81e6b0405227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/bd84b629c8de41aa2ae82c067c955e06f1b00240",
-                "reference": "bd84b629c8de41aa2ae82c067c955e06f1b00240",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/231e3186624c03d7e7c890ec662b81e6b0405227",
+                "reference": "231e3186624c03d7e7c890ec662b81e6b0405227",
                 "shasum": ""
             },
             "require": {
@@ -8543,9 +8550,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.25.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.26.0"
             },
-            "time": "2024-01-04T17:06:16+00:00"
+            "time": "2024-02-23T16:05:55+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10375,8 +10382,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "permittedleader/forms-for-laravel": 20,
-        "permittedleader/tiffey": 20,
-        "permittedleader/tables-for-laravel": 20
+        "permittedleader/tiffey": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
