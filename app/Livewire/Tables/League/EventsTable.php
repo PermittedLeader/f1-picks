@@ -38,6 +38,9 @@ class EventsTable extends Table
             }),
             Column::make('date')->component('date')->sortable(),
             Column::make('pick_date','Pick by')->component('timeDiffFOrHumans')->sortable(),
+            Column::make('*','Pick')->formatDisplay(function($row){
+                return Pick::where('user_id',auth()->id())->where('season_id',$row->season->id)->where('event_id',$row->id)->where('league_id',$this->league->id)->first()?->pickable->name ?? 'No pick entered';
+            })
         ];
     }
 
