@@ -9,8 +9,8 @@
                     Create
                 </x-tiffey::button>
             </x-slot:actions>
-            <livewire:tables.league.index-table />
+            
         @endcan
-        
+        <livewire:tables.league.index-table />
     </x-tiffey::card>
 </x-tiffey::layouts.main-layout>

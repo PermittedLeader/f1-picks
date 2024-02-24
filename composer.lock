@@ -3184,16 +3184,16 @@
         },
         {
             "name": "permittedleader/tables-for-laravel",
-            "version": "v2.2.0",
+            "version": "v2.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:PermittedLeader/tables-for-laravel.git",
-                "reference": "0dc70723758b4accc06303859c3e33fa5afcb4c3"
+                "reference": "f33193d6a2f40a15f86ab3990b22df89f265b2ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/0dc70723758b4accc06303859c3e33fa5afcb4c3",
-                "reference": "0dc70723758b4accc06303859c3e33fa5afcb4c3",
+                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/f33193d6a2f40a15f86ab3990b22df89f265b2ea",
+                "reference": "f33193d6a2f40a15f86ab3990b22df89f265b2ea",
                 "shasum": ""
             },
             "require": {
@@ -3236,10 +3236,10 @@
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
             "support": {
-                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.2.0",
+                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.2.3",
                 "issues": "https://github.com/PermittedLeader/tables-for-laravel/issues"
             },
-            "time": "2024-02-24T20:50:04+00:00"
+            "time": "2024-02-24T21:24:38+00:00"
         },
         {
             "name": "permittedleader/tiffey",
