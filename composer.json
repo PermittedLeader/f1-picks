@@ -11,7 +11,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "permittedleader/forms-for-laravel": "~2.0.0-dev",
+        "permittedleader/forms-for-laravel": "^2.0",
         "permittedleader/tiffey": "~1.0.0-dev",
         "permittedleader/tables-for-laravel": "^2.0",
         "spatie/laravel-permission": "^6.3",

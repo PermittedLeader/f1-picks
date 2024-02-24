@@ -33,10 +33,15 @@ class PickPolicy
      */
     public function create(User $user, Event $event, League $league, Season $season): bool
     {
-        if($user->leagues->contains($league) && $league->events->contains($event) && $user->picks()->where('event_id',$event)
-        ->where('league_id',$league)
-        ->where('season_id',$season)
-        ->count() == 0 && $event->pick_date > Carbon::now()){
+        if(
+            $user->leagues->contains($league) && 
+            $league->events->contains($event) && 
+            $user->picks()->where('event_id',$event->id)
+                ->where('league_id',$league->id)
+                ->where('season_id',$season->id)
+                ->count() == 0 && 
+            $event->pick_date > Carbon::now()
+        ){
             return true;
         }
         return $user->hasPermissionTo('create picks');
@@ -52,9 +57,9 @@ class PickPolicy
             $user->leagues->contains($league) && 
             $league->events->contains($event) && 
             $pick->user_id == $user->id && 
-            $user->picks()->where('event_id',$event)
-                ->where('league_id',$league)
-                ->where('season_id',$season)
+            $user->picks()->where('event_id',$event->id)
+                ->where('league_id',$league->id)
+                ->where('season_id',$season->id)
                 ->count() > 0 && 
             $event->pick_date > Carbon::now()){
             return true;

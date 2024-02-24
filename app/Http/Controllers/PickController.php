@@ -27,8 +27,9 @@ class PickController extends Controller
      */
     public function create(League $league, Season $season, Event $event)
     {
-        $data = compact('event','league','season');
         $this->authorize('create',[Pick::class,$event,$league,$season]);
+
+        $data = compact('event','league','season');
 
         return view('pick.create',$data);
     }

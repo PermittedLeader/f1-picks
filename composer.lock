@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce3acefed3bbf853b1ce6fa50989b133",
+    "content-hash": "d434a969c973fe963795543adfd7f137",
     "packages": [
         {
             "name": "brick/math",
@@ -3123,22 +3123,22 @@
         },
         {
             "name": "permittedleader/forms-for-laravel",
-            "version": "v2.0.0",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:PermittedLeader/forms-for-laravel.git",
-                "reference": "cb47767081fda0a4f15802d85eeca200ae60e909"
+                "reference": "4451426a33e7319dbacd626c29550f4bd227316c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/cb47767081fda0a4f15802d85eeca200ae60e909",
-                "reference": "cb47767081fda0a4f15802d85eeca200ae60e909",
+                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/4451426a33e7319dbacd626c29550f4bd227316c",
+                "reference": "4451426a33e7319dbacd626c29550f4bd227316c",
                 "shasum": ""
             },
             "require": {
                 "laravel/framework": "^10.0",
                 "livewire/livewire": "^3.0",
-                "permittedleader/tiffey": "~1.0.0-dev",
+                "permittedleader/tiffey": "~1.0.0",
                 "propaganistas/laravel-phone": "^5.1"
             },
             "require-dev": {
@@ -3177,10 +3177,10 @@
             ],
             "description": "Forms for Laravel",
             "support": {
-                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.0.0",
+                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.1.3",
                 "issues": "https://github.com/PermittedLeader/forms-for-laravel/issues"
             },
-            "time": "2024-02-21T13:31:39+00:00"
+            "time": "2024-02-24T21:06:53+00:00"
         },
         {
             "name": "permittedleader/tables-for-laravel",
@@ -10395,7 +10395,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "permittedleader/forms-for-laravel": 20,
         "permittedleader/tiffey": 20
     },
     "prefer-stable": true,
