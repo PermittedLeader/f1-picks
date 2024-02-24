@@ -19,7 +19,7 @@
             @auth
                 <x-tiffey::nav.link href="{{ route('home') }}" active="{{ request()->routeIs('home') }}">Home</x-tiffey::nav.link>
                 <x-tiffey::nav.dropdown title="More">
-                    @can('edit',App\Models\Pickable::class)
+                    @can('create',App\Models\Pickable::class)
                         <x-tiffey::nav.link href="{{ route('pickable.index') }}" :active="request()->routeIs('pickable.*')">
                             Pickables
                         </x-tiffey::nav.link>
