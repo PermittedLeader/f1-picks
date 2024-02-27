@@ -23,6 +23,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         UserCreated::class => [
             AddUsersToF1League::class,
+            SendWelcomeEmail::class,
         ]
     ];
 
