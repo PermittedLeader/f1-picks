@@ -6,4 +6,10 @@
         </x-slot:header>
         <livewire:tables.season.events-table :season="$season" />
     </x-tiffey::card>
+    <x-tiffey::card>
+        <x-slot:header>
+            Pickables
+        </x-slot:header>
+        <livewire:tables.season.pickable-table :$season />
+    </x-tiffey::card>
 </x-tiffey::layouts.main-layout>

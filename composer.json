@@ -12,8 +12,9 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "permittedleader/forms-for-laravel": "^2.0",
-        "permittedleader/tiffey": "~1.0.0-dev",
-        "permittedleader/tables-for-laravel": "^2.0",
+        "permittedleader/tiffey": "^1.1.0",
+        "permittedleader/tables-for-laravel": "^2.4.0-alpha",
+        "permittedleader/flash-messages": "^2.0.2-alpha",
         "spatie/laravel-permission": "^6.3",
         "staudenmeir/eloquent-has-many-deep": "^1.19"
     },

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Permittedleader\TablesForLaravel\Traits\Searchable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -25,16 +26,16 @@ class Event extends Model
     ];
 
     protected $casts = [
-        'date'=>'datetime',
-        'pick_date'=>'datetime'
+        'date' => 'datetime',
+        'pick_date' => 'datetime'
     ];
 
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:255',
-            'date'=>'required|date|after:today',
-            'pick_date'=>'required|date|before:date'
+            'name' => 'required|string|max:255',
+            'date' => 'required|date|after:today',
+            'pick_date' => 'required|date|before:date'
         ];
     }
 
@@ -49,31 +50,31 @@ class Event extends Model
     }
 
     /**
-     * The admins that belong to the Event
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function admins(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class,'event_admins');
-    }
-
-    /**
      * Get all of the pickables for the Event
      *
      */
-    public function pickables()
+    public function pickables(Season $season)
     {
-        return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->pickables());
+        return $this->seasons()->where('seasons.id',$season->id)->first()->pickables();
     }
 
     public function availablePicks(League $league, Season $season)
     {
         $userPicks = auth()->user()
-                        ->picks()
-                        ->where('league_id',$league->id)
-                        ->where('season_id',$season->id)
-                        ->get()->pluck('pickable.id');
-        return $this->pickables()->whereNotIn('pickables.id',$userPicks)->get();
+            ->picks()
+            ->where('league_id', $league->id)
+            ->where('season_id', $season->id)
+            ->get()->pluck('pickable.id');
+        return $this->pickables($season)->whereNotIn('pickables.id', $userPicks)->get();
+    }
+
+    /**
+     * The admins that belong to the League
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function admins(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'adminable');
     }
 }

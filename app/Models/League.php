@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 class League extends Model
@@ -57,5 +58,15 @@ class League extends Model
     public function events()
     {
         return $this->hasManyDeepFromRelations($this->seasons(),(new Season())->events())->withIntermediate(Season::class,['id','name']);
+    }
+
+    /**
+     * The admins that belong to the League
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function admins(): MorphToMany
+    {
+        return $this->morphToMany(User::class,'adminable');
     }
 }

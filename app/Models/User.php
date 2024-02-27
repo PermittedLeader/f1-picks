@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class User extends Authenticatable
 {
@@ -78,5 +79,20 @@ class User extends Authenticatable
     public function picks(): HasMany
     {
         return $this->hasMany(Pick::class);
+    }
+
+    public function adminOfLeagues(): MorphToMany
+    {
+        return $this->morphedByMany(League::class,'adminable');
+    }
+
+    public function adminOfEvents(): MorphToMany
+    {
+        return $this->morphedByMany(Event::class,'adminable');
+    }
+
+    public function adminOfSeasons(): MorphToMany
+    {
+        return $this->morphedByMany(Season::class,'adminable');
     }
 }
