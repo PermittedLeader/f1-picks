@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Events\UserCreated;
 use App\Listeners\SendWelcomeEmail;
 use App\Listeners\AddUsersToF1League;
+use App\Listeners\AddUsersToRoles;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -24,6 +25,7 @@ class EventServiceProvider extends ServiceProvider
         UserCreated::class => [
             AddUsersToF1League::class,
             SendWelcomeEmail::class,
+            AddUsersToRoles::class
         ]
     ];
 

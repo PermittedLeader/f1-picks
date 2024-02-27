@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'livewire' => true,
+
     'rounded' => 'rounded-tl-xl rounded-br-xl',
 
     'card-border' => 'border-t-4 border-secondary-light',

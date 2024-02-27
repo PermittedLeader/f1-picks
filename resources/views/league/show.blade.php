@@ -11,7 +11,8 @@
             </x-slot:actions>
         @endcan
         <div class="prose dark:prose-invert max-w-none">
-            {!! Str::markdown($league->description) !!}
+            
+            {!! Str::markdown($league->description ?? '') !!}
         </div>
         
     </x-tiffey::card>

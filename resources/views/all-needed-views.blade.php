@@ -28,31 +28,18 @@
         </div>
     </x-tiffey::card>
 
-    <x-tiffey::card>
-        <x-slot:header>
-                {{ __('Available Leagues') }}
-        </x-slot>
-        <x-slot:subtitle>
-            @foreach ($availableLeagues as $league)
-                <x-tiffey::card>
-                    <x-slot:header>
-                        {{ $league->name }}
-                    </x-slot:header>
-                    <x-slot:actions>
-                        <div class="ml-2">
-                            <x-tiffey::icon icon="fa-solid fa-people-group" label=" Number of Members" /> {{ $league->members->count(); }}
-                        </div>
-                        
-                    </x-slot:actions>
-                    {!! Str::markdown($league->description ?? '') !!}
-                    <x-slot:footerActions>
-                        <x-tiffey::button color="bg-brand-mid" href="{{ route('league.join',$league) }}">
-                            Join
-                        </x-tiffey::button>
-                    </x-slot:footerActions>
-                    
-                </x-tiffey::card>
-            @endforeach
-        </x-slot>
-    </x-tiffey::card>
+    <x-tiffey::alert level="success">
+        ALERT!
+    </x-tiffey::alert>
+    <x-tiffey::alert level="warning">
+        ALERT!
+    </x-tiffey::alert>
+    <x-tiffey::alert level="danger">
+        ALERT!
+    </x-tiffey::alert>
+    <x-tiffey::alert level="info">
+        ALERT!
+    </x-tiffey::alert>
+    <x-tiffey::card-modal>
+    </x-tiffey::card-modal>
 </x-tiffey::layouts.main-layout>

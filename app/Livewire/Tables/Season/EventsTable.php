@@ -19,6 +19,8 @@ class EventsTable extends Table
 
     public bool $isFilterable = false;
 
+    public bool $eventListModal = false;
+
     public Season $season;
 
     public function query(): Builder
@@ -36,9 +38,26 @@ class EventsTable extends Table
     public function actions(): array
     {
         return [
-            Action::show('event.show'),
-            Action::edit('event.edit'),
-            Action::delete('event.destroy'),
+            
         ];
+    }
+
+    public function tableActions(): array
+    {
+        return [
+            Action::makeAction('showEventListModal()', 'Attach')->showLabel()->icon('fa-solid fa-link')
+        ];
+    }
+
+    public function modals(): array
+    {
+        return [
+            view('season.event-list-modal', ['season' => $this->season]),
+        ];
+    }
+
+    public function showEventListModal()
+    {
+        $this->eventListModal = true;
     }
 }
