@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'store'])->name('pick.store');
     Route::get('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'edit'])->name('pick.edit');
     Route::patch('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'update'])->name('pick.update');
+    Route::get('/pick',[PickController::class, 'index'])->name('pick.index');
 });
 
 require __DIR__.'/auth.php';

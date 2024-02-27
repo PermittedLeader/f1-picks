@@ -80,4 +80,14 @@ class Pick extends Model
     {
         return $this->belongsTo(Event::class);
     }
+
+    /**
+     * Get the season that owns the Pick
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function season(): BelongsTo
+    {
+        return $this->belongsTo(Season::class);
+    }
 }
