@@ -1315,16 +1315,16 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.28.3",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "c8bd0a8557aa2b0597bae762d9926b819d886419"
+                "reference": "f4c4cb2197cd96a3d8a913c7b8437291d8bde5af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/c8bd0a8557aa2b0597bae762d9926b819d886419",
-                "reference": "c8bd0a8557aa2b0597bae762d9926b819d886419",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/f4c4cb2197cd96a3d8a913c7b8437291d8bde5af",
+                "reference": "f4c4cb2197cd96a3d8a913c7b8437291d8bde5af",
                 "shasum": ""
             },
             "require": {
@@ -1373,20 +1373,20 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2024-02-19T02:47:27+00:00"
+            "time": "2024-02-21T14:14:23+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v10.45.1",
+            "version": "v10.46.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "dcf5d1d722b84ad38a5e053289130b6962f830bd"
+                "reference": "5e95946a8283a8d5c015035793f9c61c297e937f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/dcf5d1d722b84ad38a5e053289130b6962f830bd",
-                "reference": "dcf5d1d722b84ad38a5e053289130b6962f830bd",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5e95946a8283a8d5c015035793f9c61c297e937f",
+                "reference": "5e95946a8283a8d5c015035793f9c61c297e937f",
                 "shasum": ""
             },
             "require": {
@@ -1579,20 +1579,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-02-21T14:07:36+00:00"
+            "time": "2024-02-27T16:46:54+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.15",
+            "version": "v0.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "d814a27514d99b03c85aa42b22cfd946568636c1"
+                "reference": "ca6872ab6aec3ab61db3a61f83a6caf764ec7781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/d814a27514d99b03c85aa42b22cfd946568636c1",
-                "reference": "d814a27514d99b03c85aa42b22cfd946568636c1",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/ca6872ab6aec3ab61db3a61f83a6caf764ec7781",
+                "reference": "ca6872ab6aec3ab61db3a61f83a6caf764ec7781",
                 "shasum": ""
             },
             "require": {
@@ -1634,9 +1634,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.15"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.16"
             },
-            "time": "2023-12-29T22:37:42+00:00"
+            "time": "2024-02-21T19:25:27+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -3073,7 +3073,7 @@
             "version": "v2.0.2-beta",
             "source": {
                 "type": "git",
-                "url": "git@github.com:PermittedLeader/flash-messages.git",
+                "url": "https://github.com/PermittedLeader/flash-messages.git",
                 "reference": "88dcd639715a49c8aabd9a5a06645c40812bae01"
             },
             "dist": {
@@ -3126,7 +3126,7 @@
             "version": "v2.1.4",
             "source": {
                 "type": "git",
-                "url": "git@github.com:PermittedLeader/forms-for-laravel.git",
+                "url": "https://github.com/PermittedLeader/forms-for-laravel.git",
                 "reference": "9468a2ae338dbfc921ee264cbdd7c2560f950962"
             },
             "dist": {
@@ -3184,16 +3184,16 @@
         },
         {
             "name": "permittedleader/tables-for-laravel",
-            "version": "v2.4.0-rc3",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:PermittedLeader/tables-for-laravel.git",
-                "reference": "1be4d2004adecbb72535a39299ce2fc8d6637b7f"
+                "url": "https://github.com/PermittedLeader/tables-for-laravel.git",
+                "reference": "f1ab6f61e490d810fc61bd8c44446943d9a1c6aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/1be4d2004adecbb72535a39299ce2fc8d6637b7f",
-                "reference": "1be4d2004adecbb72535a39299ce2fc8d6637b7f",
+                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/f1ab6f61e490d810fc61bd8c44446943d9a1c6aa",
+                "reference": "f1ab6f61e490d810fc61bd8c44446943d9a1c6aa",
                 "shasum": ""
             },
             "require": {
@@ -3233,17 +3233,17 @@
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
             "support": {
-                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.4.0-rc3",
+                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v2.4.2",
                 "issues": "https://github.com/PermittedLeader/tables-for-laravel/issues"
             },
-            "time": "2024-02-27T13:16:02+00:00"
+            "time": "2024-02-27T20:03:58+00:00"
         },
         {
             "name": "permittedleader/tiffey",
             "version": "v1.1.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:PermittedLeader/tiffey.git",
+                "url": "https://github.com/PermittedLeader/tiffey.git",
                 "reference": "a2f733e65e344ad17e6d8ee1b006f4e89c6c5580"
             },
             "dist": {
@@ -7552,16 +7552,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.28.0",
+            "version": "v1.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "a05861ca9b04558b1ec1f36cff521a271a259b6c"
+                "reference": "f84e444a3dbc1811803cd2a050bdd54ff6f5eef8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/a05861ca9b04558b1ec1f36cff521a271a259b6c",
-                "reference": "a05861ca9b04558b1ec1f36cff521a271a259b6c",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/f84e444a3dbc1811803cd2a050bdd54ff6f5eef8",
+                "reference": "f84e444a3dbc1811803cd2a050bdd54ff6f5eef8",
                 "shasum": ""
             },
             "require": {
@@ -7610,7 +7610,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2024-02-20T15:11:00+00:00"
+            "time": "2024-02-23T00:24:47+00:00"
         },
         {
             "name": "maximebf/debugbar",
