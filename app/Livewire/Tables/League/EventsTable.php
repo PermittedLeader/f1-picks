@@ -48,7 +48,7 @@ class EventsTable extends Table
     {
         return [
             Action::make(function($data){
-                return route('pick.edit',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season,'pick'=>1]);
+                return route('pick.edit',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season,'pick'=>Pick::where('user_id',auth()->id())->where('season_id',$data->season->id)->where('event_id',$data->id)->where('league_id',$this->league->id)->first()?->id]);
             },"Change Pick...")
                 ->icon('fa-solid fa-shuffle')
                 ->gate(function($data){

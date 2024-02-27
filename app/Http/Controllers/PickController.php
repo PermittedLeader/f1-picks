@@ -59,7 +59,7 @@ class PickController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pick $pick,League $league, Season $season, Event $event)
+    public function edit(League $league, Season $season, Event $event,Pick $pick)
     {
         $this->authorize('update',[$pick, $event, $league,$season]);
 

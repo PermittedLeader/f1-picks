@@ -64,6 +64,7 @@ class Event extends Model
             ->picks()
             ->where('league_id', $league->id)
             ->where('season_id', $season->id)
+            ->whereNot('event_id',$this->id)
             ->get()->pluck('pickable.id');
         return $this->pickables($season)->whereNotIn('pickables.id', $userPicks)->get();
     }
