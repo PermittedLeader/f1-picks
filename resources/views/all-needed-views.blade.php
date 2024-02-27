@@ -42,4 +42,6 @@
     </x-tiffey::alert>
     <x-tiffey::card-modal>
     </x-tiffey::card-modal>
+    <x-tiffey::nav.link>Nav link</x-tiffey::nav.link>
+    <x-tiffey::nav.dropdown>Nav dropdown</x-tiffey::nav.dropdown>
 </x-tiffey::layouts.main-layout>
