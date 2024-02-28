@@ -1,59 +1,11 @@
 <x-tiffey::layouts.main-layout>
     <x-tiffey::card>
         <x-slot name="header">
-                {{ __('Dashboard') }}
+                {{ __('Welcome to') }} {{ config('app.name') }}
         </x-slot>
-        {{ __("You're logged in!") }} Card....
+        The home of F1 (picking)!
     </x-tiffey::card>
-    
-    <x-tiffey::card collapsible="true">
-        <x-slot name="header">
-                {{ __('Dashboard') }}
-        </x-slot>
-        <x-slot name="subtitle">
-                Welcome
-        </x-slot>
-        <x-slot name="actions">
-            <x-tiffey::button>Action</x-tiffey::button>
-    </x-slot>
-        {{ __("You're logged in!") }} Card....
-    </x-tiffey::card>
-
-    <x-tiffey::card collapsible="true">
-        <x-slot name="header">
-                {{ __('Dashboard') }}
-        </x-slot>
-        <x-slot name="footerActions">
-            <x-tiffey::button>Action</x-tiffey::button>
-    </x-slot>
-        {{ __("You're logged in!") }} Card....
-        <span class="text-white"></span>
-    </x-tiffey::card>
-
-    <x-tiffey::card collapsible="true" open="false">
-        <x-slot name="header">
-                {{ __('Dashboard') }}
-        </x-slot>
-        <x-slot name="footerActions">
-            <x-tiffey::button>Action</x-tiffey::button>
-    </x-slot>
-        <x-tiffey::card collapsible="true" open="false">
-            <x-slot name="header">
-                    {{ __('Dashboard') }}
-            </x-slot>
-            <x-slot name="footerActions">
-                <x-tiffey::button>Action</x-tiffey::button>
-        </x-slot>
-            <x-tiffey::card collapsible="true" open="false">
-                <x-slot name="header">
-                        {{ __('Dashboard') }}
-                </x-slot>
-                <x-slot name="footerActions">
-                    <x-tiffey::button>Action</x-tiffey::button>
-            </x-slot>
-                {{ __("You're logged in!") }} Card....
-                <span class="text-white"></span>
-            </x-tiffey::card>
-        </x-tiffey::card>
+    <x-tiffey::card>
+        Register above to access the picking leagues available to you!
     </x-tiffey::card>
 </x-tiffey::layouts.main-layout>
