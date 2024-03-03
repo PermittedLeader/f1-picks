@@ -27,7 +27,7 @@
         <livewire:tables.league.events-table :league="$league" />
     </x-tiffey::card>
 
-    <x-tiffey::card collapsible="true" open="false">
+    <x-tiffey::card collapsible="true">
         <x-slot:header>Members</x-slot:header>
         <livewire:tables.league.members-table :league="$league" />
     </x-tiffey::card>

@@ -69,7 +69,7 @@ class EventPolicy
 
     public function makePick(User $user, Event $event, League $league, Season $season):bool
     {
-        if($event->pick_date < Carbon::now()){
+        if($event->pick_date > Carbon::now()){
             return false;
         };
         return $user->picks()->where('event_id',$event->id)
@@ -85,7 +85,7 @@ class EventPolicy
         Season $season
     ):bool
     {
-        if($event->pick_date < Carbon::now()){
+        if($event->pick_date > Carbon::now()){
             return false;
         };
         return $user->picks()->where('event_id',$event->id)

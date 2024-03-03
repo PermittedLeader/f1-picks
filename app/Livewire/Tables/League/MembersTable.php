@@ -29,6 +29,9 @@ class MembersTable extends Table
     {
         return [
             Column::make('name')->sortable(),
+            Column::make('*', 'Score')->formatDisplay(function($value){
+                return $value->picks->pluck('score')->sum();
+            })
         ];
     }
 
