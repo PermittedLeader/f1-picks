@@ -22,7 +22,9 @@ class MembersTable extends Table
 
     public function query(): Builder
     {
-        return $this->league->members();
+        return $this->league->members()->with("picks", function ($query) {
+            $query->where("league_id", $this->league->id);
+          });
     }
 
     public function columns(): array
@@ -30,7 +32,7 @@ class MembersTable extends Table
         return [
             Column::make('name')->sortable(),
             Column::make('*', 'Score')->formatDisplay(function($value){
-                return $value->picks->pluck('score')->sum();
+                return $value->picks->sum('score');
             })
         ];
     }
