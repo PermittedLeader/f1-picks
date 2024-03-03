@@ -13,7 +13,7 @@ class LeaguePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('list leagues');
+        return $user->hasPermissionTo('list leagues');
     }
 
     /**
@@ -21,7 +21,7 @@ class LeaguePolicy
      */
     public function view(User $user, League $league): bool
     {
-        return $user->can('list leagues',$league);
+        return $user->hasPermissionTo('list leagues');
     }
 
     /**
@@ -29,7 +29,7 @@ class LeaguePolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create leagues');
+        return $user->hasPermissionTo('create leagues');
     }
 
     /**
@@ -37,7 +37,7 @@ class LeaguePolicy
      */
     public function update(User $user, League $league): bool
     {
-        return $user->can('edit leagues',$league);
+        return $user->hasPermissionTo('edit leagues');
     }
 
     /**
@@ -45,7 +45,7 @@ class LeaguePolicy
      */
     public function delete(User $user, League $league): bool
     {
-        return $user->can('delete leagues',$league);
+        return $user->hasPermissionTo('delete leagues');
     }
 
     /**
@@ -53,7 +53,7 @@ class LeaguePolicy
      */
     public function restore(User $user, League $league): bool
     {
-        return $user->can('restore leagues',$league);
+        return $user->hasPermissionTo('restore leagues');
     }
 
     /**
@@ -61,6 +61,6 @@ class LeaguePolicy
      */
     public function forceDelete(User $user, League $league): bool
     {
-        return $user->can('forceDelete leagues',$league);
+        return $user->hasPermissionTo('forceDelete leagues');
     }
 }

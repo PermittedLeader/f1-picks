@@ -16,7 +16,7 @@ class EventPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('list events');
+        return $user->hasPermissionTo('list events');
     }
 
     /**
@@ -24,7 +24,7 @@ class EventPolicy
      */
     public function view(User $user, Event $event): bool
     {
-        return $user->can('view events',$event);
+        return $user->hasPermissionTo('view events');
     }
 
     /**
@@ -32,7 +32,7 @@ class EventPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create events');
+        return $user->hasPermissionTo('create events');
     }
 
     /**
@@ -40,7 +40,7 @@ class EventPolicy
      */
     public function update(User $user, Event $event): bool
     {
-        return $user->can('edit events',$event);
+        return $user->hasPermissionTo('edit events');
     }
 
     /**
@@ -48,7 +48,7 @@ class EventPolicy
      */
     public function delete(User $user, Event $event): bool
     {
-        return $user->can('delete events',$event);
+        return $user->hasPermissionTo('delete events');
     }
 
     /**
@@ -56,7 +56,7 @@ class EventPolicy
      */
     public function restore(User $user, Event $event): bool
     {
-        return $user->can('restore events',$event);
+        return $user->hasPermissionTo('restore events');
     }
 
     /**
@@ -64,7 +64,7 @@ class EventPolicy
      */
     public function forceDelete(User $user, Event $event): bool
     {
-        return $user->can('forceDelete events',$event);
+        return $user->hasPermissionTo('forceDelete events');
     }
 
     public function makePick(User $user, Event $event, League $league, Season $season):bool

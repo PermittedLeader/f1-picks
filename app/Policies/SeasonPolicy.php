@@ -12,7 +12,7 @@ class SeasonPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('list seasons');
+        return $user->hasPermissionTo('list seasons');
     }
 
     /**
@@ -20,7 +20,7 @@ class SeasonPolicy
      */
     public function view(User $user, Season $season): bool
     {
-        return $user->can('list seasons',$season);
+        return $user->hasPermissionTo('list seasons');
     }
 
     /**
@@ -28,7 +28,7 @@ class SeasonPolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create seasons');
+        return $user->hasPermissionTo('create seasons');
     }
 
     /**
@@ -36,7 +36,7 @@ class SeasonPolicy
      */
     public function update(User $user, Season $season): bool
     {
-        return $user->can('edit seasons',$season);
+        return $user->hasPermissionTo('edit seasons');
     }
 
     /**
@@ -44,7 +44,7 @@ class SeasonPolicy
      */
     public function delete(User $user, Season $season): bool
     {
-        return $user->can('delete seasons',$season);
+        return $user->hasPermissionTo('delete seasons');
     }
 
     /**
@@ -52,7 +52,7 @@ class SeasonPolicy
      */
     public function restore(User $user, Season $season): bool
     {
-        return $user->can('restore seasons',$season);
+        return $user->hasPermissionTo('restore seasons');
     }
 
     /**
@@ -60,6 +60,6 @@ class SeasonPolicy
      */
     public function forceDelete(User $user, Season $season): bool
     {
-        return $user->can('forceDelete seasons',$season);
+        return $user->hasPermissionTo('forceDelete seasons');
     }
 }
