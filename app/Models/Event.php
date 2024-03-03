@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Traits\Validatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -77,5 +78,15 @@ class Event extends Model
     public function admins(): MorphToMany
     {
         return $this->morphToMany(User::class, 'adminable');
+    }
+
+    /**
+     * Get all of the picks for the Event
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function picks(): HasMany
+    {
+        return $this->hasMany(Pick::class);
     }
 }

@@ -26,7 +26,10 @@ class EventsTable extends Table
 
     public function query(): Builder
     {
-        return $this->league->events();
+        return $this->league->events()->with('picks', function(Builder $query) {
+            $query->where('user_id',auth()->id());
+            $query->where('league_id',$this->league->id);
+        });
     }
 
     public function columns(): array
