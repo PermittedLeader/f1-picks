@@ -9,31 +9,33 @@ use App\Models\League;
 use App\Models\Season;
 use App\Models\Pickable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Livewire\Attributes\Reactive;
 use Permittedleader\TablesForLaravel\Http\Livewire\Table;
 use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
 use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsTo;
 
-class IndexTable extends Table
+class EventTable extends Table
 {
     public bool $isExportable = false;
 
     public bool $isFilterable = true;
 
+    public League $league;
+
+    #[Reactive]
+    public $event_id;
+
     public function query(): Builder
     {
-        return Pick::query();
+        return Pick::query()->where('league_id',$this->league->id)->where('event_id',$this->event_id);
     }
 
     public function columns(): array
     {
         return [
-            Column::make('id')->sortable(),
             BelongsTo::make('user')->model(User::class)->sortable()->filterable(),
-            BelongsTo::make('league')->model(League::class)->sortable()->filterable(),
             BelongsTo::make('season')->model(Season::class)->sortable()->filterable(),
-            BelongsTo::make('event')->model(Event::class)->sortable()->filterable(),
             BelongsTo::make('pickable','Pick')->model(Pickable::class)->sortable()->filterable(),
-            Column::make('created_at','Pick time')->component('date')
         ];
     }
 
