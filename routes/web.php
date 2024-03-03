@@ -8,6 +8,7 @@ use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PickableController;
 use App\Http\Controllers\PickController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'edit'])->name('pick.edit');
     Route::patch('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'update'])->name('pick.update');
     Route::get('/pick',[PickController::class, 'index'])->name('pick.index');
+    Route::resource('user',UserController::class);
 });
 
 require __DIR__.'/auth.php';
