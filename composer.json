@@ -47,19 +47,13 @@
             "type": "vcs",
             "url": "https://github.com/PermittedLeader/forms-for-laravel.git"
         },
-        "tiffey": {
-            "type": "path",
-            "url": "../tiffey",
-            "options": {
-                "symlink": true
-            }
-        },
         "tables-for-laravel": {
-            "type": "path",
-            "url": "../tables-for-laravel",
-            "options": {
-                "symlink": true
-            }
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/tables-for-laravel.git"
+        },
+        "tiffey": {
+            "type": "vcs",
+            "url": "https://github.com/PermittedLeader/tiffey.git"
         },
         "permittedleader/flash-messages": {
             "type": "vcs",
