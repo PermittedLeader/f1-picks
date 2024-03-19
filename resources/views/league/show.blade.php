@@ -18,7 +18,7 @@
     </x-tiffey::card>
 
     <x-tiffey::card collapsible="true">
-        <x-slot:header>League Table</x-slot:header>
+        <x-slot:header><x-tiffey::icon icon="fa-solid fa-ranking-star" label="league table" /> League Table</x-slot:header>
         <x-league-leaderboard :league="$league" />
         <x-tiffey::card collapsible="true" open="false">
         <x-slot:header>Full table</x-slot:header>

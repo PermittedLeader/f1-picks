@@ -8,7 +8,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="h-[7vh] dark:bg-brand-dark p-2">
+            <div class="h-20 bg-brand-dark p-2 text-white">
                 <div class="text-center align-middle text-xl">
                     2
                 </div>
@@ -22,7 +22,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="h-[10vh] dark:bg-brand-mid p-2">
+            <div class="h-24 bg-brand-mid p-2 text-white">
                 <div class="text-center align-middle text-xl">
                     1
                 </div>
@@ -36,7 +36,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="h-[5vh] dark:bg-brand-dark p-2">
+            <div class="h-16 bg-brand-dark p-2 text-white">
                 <div class="text-center align-middle text-xl">
                     3
                 </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
     
-    <div class="w-full text-center p-2 bg-secondary-mid mt-2">
+    <div class="w-full text-center p-2 bg-secondary-mid mt-2 text-white">
         Your rank: {{ $userRank }}
     </div>
 </div>

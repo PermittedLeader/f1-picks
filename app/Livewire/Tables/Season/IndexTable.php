@@ -13,11 +13,11 @@ use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
 
 class IndexTable extends Table
 {
-    public bool $isSearchable = false;
+    public bool $isSearchable = true;
 
-    public bool $isExportable = false;
+    public bool $isExportable = true;
 
-    public bool $isFilterable = false;
+    public bool $isFilterable = true;
 
     public function query(): Builder
     {

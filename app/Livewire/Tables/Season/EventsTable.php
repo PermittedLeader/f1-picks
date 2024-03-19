@@ -45,7 +45,7 @@ class EventsTable extends Table
     public function tableActions(): array
     {
         return [
-            Action::makeAction('showEventListModal()', 'Attach')->showLabel()->icon('fa-solid fa-link')
+            Action::makeClick('$wire.eventListModal = true', 'Attach')->showLabel()->icon('fa-solid fa-link')
         ];
     }
 
