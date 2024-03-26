@@ -19,7 +19,8 @@ class Pick extends Model
         'league_id',
         'pickable_id',
         'season_id',
-        'user_id'
+        'user_id',
+        'score'
     ];
 
     public function rules(): array

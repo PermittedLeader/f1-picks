@@ -45,6 +45,10 @@
     </div>
     
     <div class="w-full text-center p-2 bg-secondary-mid mt-2 text-white">
+        @if($userRank > 0)
         Your rank: {{ $userRank }}
+        @else
+        You are not part of this league.
+        @endif
     </div>
 </div>

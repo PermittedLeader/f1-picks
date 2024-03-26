@@ -10,7 +10,7 @@ return new class extends Migration
         'list picks' => 'User',
         'view picks' => 'User',
         'create picks' => 'League Administrator',
-        'edit picks' => 'League Adminstrator',
+        'edit picks' => 'League Administrator',
         'delete picks' => 'Super Admin',
         'restore picks' => 'Super Admin',
         'forceDelete picks' => 'Super Admin'

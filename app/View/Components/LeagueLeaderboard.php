@@ -39,7 +39,7 @@ class LeagueLeaderboard extends Component
         $this->top3places[2] = $results->where('rank','=',2);
         $this->top3places[3] = $results->where('rank','=',3);
 
-        $this->userRank = $results->where('user_id',auth()->id())->first()->rank;
+        $this->userRank = $results->where('user_id',auth()->id())->first()?->rank ?? 0;
 
     }
 

@@ -59,9 +59,12 @@ class Event extends Model
         return $this->seasons()->where('seasons.id',$season->id)->first()->pickables();
     }
 
-    public function availablePicks(League $league, Season $season)
+    public function availablePicks(League $league, Season $season, ?User $user = null)
     {
-        $userPicks = auth()->user()
+        if(is_null($user)){
+            $user = auth()->user();
+        }
+        $userPicks = $user
             ->picks()
             ->where('league_id', $league->id)
             ->where('season_id', $season->id)

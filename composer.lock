@@ -3184,16 +3184,16 @@
         },
         {
             "name": "permittedleader/tables-for-laravel",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/tables-for-laravel.git",
-                "reference": "0b3d649b89b8f927025372b11807ce96fe5cabeb"
+                "reference": "5941c95af8ff3e41124a4e217a66abb9b19038c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/0b3d649b89b8f927025372b11807ce96fe5cabeb",
-                "reference": "0b3d649b89b8f927025372b11807ce96fe5cabeb",
+                "url": "https://api.github.com/repos/PermittedLeader/tables-for-laravel/zipball/5941c95af8ff3e41124a4e217a66abb9b19038c6",
+                "reference": "5941c95af8ff3e41124a4e217a66abb9b19038c6",
                 "shasum": ""
             },
             "require": {
@@ -3234,23 +3234,23 @@
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
             "support": {
-                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v3.1.0",
+                "source": "https://github.com/PermittedLeader/tables-for-laravel/tree/v3.1.1",
                 "issues": "https://github.com/PermittedLeader/tables-for-laravel/issues"
             },
-            "time": "2024-03-19T07:51:08+00:00"
+            "time": "2024-03-20T19:35:57+00:00"
         },
         {
             "name": "permittedleader/tiffey",
-            "version": "v1.3.4",
+            "version": "v1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/tiffey.git",
-                "reference": "3857a6d111a4ed6ab399ab917d51a0f57da783a7"
+                "reference": "51cb44fe03e3b235b3b1e35cb1c6b0ce4daff9aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tiffey/zipball/3857a6d111a4ed6ab399ab917d51a0f57da783a7",
-                "reference": "3857a6d111a4ed6ab399ab917d51a0f57da783a7",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey/zipball/51cb44fe03e3b235b3b1e35cb1c6b0ce4daff9aa",
+                "reference": "51cb44fe03e3b235b3b1e35cb1c6b0ce4daff9aa",
                 "shasum": ""
             },
             "require": {
@@ -3290,10 +3290,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/PermittedLeader/tiffey/tree/v1.3.4",
+                "source": "https://github.com/PermittedLeader/tiffey/tree/v1.3.6",
                 "issues": "https://github.com/PermittedLeader/tiffey/issues"
             },
-            "time": "2024-03-19T07:45:41+00:00"
+            "time": "2024-03-20T19:39:11+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -7947,16 +7947,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.6.9",
+            "version": "1.6.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06"
+                "reference": "47065d1be1fa05def58dc14c03cf831d3884ef0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06",
-                "reference": "0cc058854b3195ba21dc6b1f7b1f60f4ef3a9c06",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/47065d1be1fa05def58dc14c03cf831d3884ef0b",
+                "reference": "47065d1be1fa05def58dc14c03cf831d3884ef0b",
                 "shasum": ""
             },
             "require": {
@@ -7968,8 +7968,8 @@
                 "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5 || ^9.6.10",
-                "symplify/easy-coding-standard": "^12.0.8"
+                "phpunit/phpunit": "^8.5 || ^9.6.17",
+                "symplify/easy-coding-standard": "^12.1.14"
             },
             "type": "library",
             "autoload": {
@@ -8026,7 +8026,7 @@
                 "security": "https://github.com/mockery/mockery/security/advisories",
                 "source": "https://github.com/mockery/mockery"
             },
-            "time": "2023-12-10T02:24:34+00:00"
+            "time": "2024-03-19T16:15:45+00:00"
         },
         {
             "name": "myclabs/deep-copy",

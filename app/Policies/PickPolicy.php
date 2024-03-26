@@ -90,4 +90,14 @@ class PickPolicy
     {
         return $user->hasPermissionTo('forceDelete picks');
     }
+
+    public function adminCreate(User $user): bool
+    {
+        return $user->hasPermissionTo('create picks');
+    }
+
+    public function adminUpdate(User $user): bool
+    {
+        return $user->hasPermissionTo('edit picks');
+    }
 }

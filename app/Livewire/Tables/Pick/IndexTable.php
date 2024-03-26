@@ -10,6 +10,7 @@ use App\Models\Season;
 use App\Models\Pickable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\TablesForLaravel\Http\Livewire\Table;
+use Permittedleader\TablesForLaravel\View\Components\Actions\Action;
 use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
 use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsTo;
 
@@ -40,7 +41,14 @@ class IndexTable extends Table
     public function actions(): array
     {
         return [
-            
+            Action::edit('pick.adminEdit')->gate('adminUpdate'),
+        ];
+    }
+
+    public function tableActions(): array
+    {
+        return [
+            Action::makeLink('pick.adminCreate','Create')->icon('fa-solid fa-pen-to-square')->showLabel()
         ];
     }
 }
