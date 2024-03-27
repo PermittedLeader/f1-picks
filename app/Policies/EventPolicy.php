@@ -93,4 +93,14 @@ class EventPolicy
             ->where('season_id',$season->id)
             ->count() > 0 ? true : false;
     }
+
+    public function score(
+        User $user, 
+        Event $event, 
+        League $league, 
+        Season $season
+    ):bool
+    {
+        return $league->admins->contains($user);
+    }
 }
