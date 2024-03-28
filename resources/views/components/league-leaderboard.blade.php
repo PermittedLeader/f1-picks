@@ -48,7 +48,7 @@
         @if($userRank > 0)
         Your rank: {{ $userRank }}
         @else
-        You are not part of this league.
+        You are not part of this league, or have not picked yet.
         @endif
     </div>
 </div>
