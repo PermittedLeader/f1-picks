@@ -35,10 +35,7 @@ class AdminPickForm extends Component
             $this->selectedEventId = $pick->event_id;
             $this->selectedPickableId = $pick->pickable_id;
             $this->score = $pick->score;
-            $this->method = 'update';
-        } else {
-            $this->method = 'create';
-        }
+        };
     }
 
     public function visibleUsers()
