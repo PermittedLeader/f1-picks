@@ -21,6 +21,6 @@ class AddUsersToF1League
      */
     public function handle(object $event): void
     {
-        $event->user->leagues()->attach(League::first());
+        $event->user->leagues()->attach(League::all());
     }
 }
