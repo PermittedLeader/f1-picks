@@ -21,9 +21,9 @@
         <x-slot:header><x-tiffey::icon icon="fa-solid fa-ranking-star" label="league table" /> League Table</x-slot:header>
         <x-league-leaderboard :league="$league" />
         <x-tiffey::card collapsible="true" open="false">
-        <x-slot:header>Full table</x-slot:header>
-        <livewire:tables.league.members-table :league="$league" lazy />
-    </x-tiffey::card>
+            <x-slot:header>Full table</x-slot:header>
+            <livewire:tables.league.members-table :league="$league" lazy />
+        </x-tiffey::card>
     </x-tiffey::card>
 
     <x-tiffey::card collapsible="true" open="false">
