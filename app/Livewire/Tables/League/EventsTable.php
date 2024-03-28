@@ -51,6 +51,15 @@ class EventsTable extends Table
     {
         return [
             Action::make(function($data){
+                return route('pick.create',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season]);
+            },"Pick...")
+                ->icon('fa-solid fa-arrows-to-dot')
+                ->gate(
+                    function($data){
+                        return auth()->user()->can('makePick',[$data,$this->league,$data->season]);
+                    }
+            ),
+            Action::make(function($data){
                 return route('event.show',$data);
             },'Go to event'),
             Action::make(function($data){
@@ -64,16 +73,7 @@ class EventsTable extends Table
                 ->icon('fa-solid fa-shuffle')
                 ->gate(function($data){
                     return auth()->user()->can('changePick',[$data,$this->league,$data->season]);
-                }),
-            Action::make(function($data){
-                return route('pick.create',['event'=>$data,'league'=>$this->league->id,'season'=>$data->season]);
-            },"Pick...")
-                ->icon('fa-solid fa-arrows-to-dot')
-                ->gate(
-                    function($data){
-                        return auth()->user()->can('makePick',[$data,$this->league,$data->season]);
-                    }
-                )
+                })
         ];
     }
 }
