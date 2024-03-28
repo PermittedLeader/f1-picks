@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pick/{pick}/update',[PickController::class, 'adminUpdate'])->name('pick.adminUpdate');
     Route::get('/pick',[PickController::class, 'index'])->name('pick.index');
     Route::resource('user',UserController::class);
+    Route::get('/league/{league}/season/{season}/event/{event}/score',[EventController::class, 'score'])->name('event.score');
 });
 
 require __DIR__.'/auth.php';

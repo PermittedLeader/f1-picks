@@ -88,6 +88,8 @@ class EventController extends Controller
 
     public function score(League $league, Season $season, Event $event)
     {
-        return (bool)$this->authorize('score',[$event,$league,$season]);
+        $this->authorize('score',[$event,$league,$season]);
+
+        return view('event.score',compact('event','season','league'));
     }
 }
