@@ -34,6 +34,13 @@ class Season extends Model
         return $this->belongsToMany(Event::class);
     }
 
+    public function eventsWithoutPicksForUser(User $user,League $league)
+    {
+        return $this->events()->whereNotIn('events.id',$user->picks->where(
+            fn($query) => $query->where("season_id", $this->id)->where("league_id", $league->id)
+        )->pluck('event_id'))->get();
+    }
+
     /**
      * The pickables that belong to the Season
      *

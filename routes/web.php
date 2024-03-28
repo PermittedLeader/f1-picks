@@ -8,6 +8,7 @@ use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PickableController;
 use App\Http\Controllers\PickController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'store'])->name('pick.store');
     Route::get('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'edit'])->name('pick.edit');
     Route::patch('/league/{league}/season/{season}/event/{event}/pick/{pick}/update',[PickController::class, 'update'])->name('pick.update');
+    Route::get('/pick/create',[PickController::class, 'adminCreate'])->name('pick.adminCreate');
+    Route::post('/pick/create',[PickController::class, 'adminStore'])->name('pick.adminStore');
+    Route::get('/pick/{pick}/update',[PickController::class, 'adminEdit'])->name('pick.adminEdit');
+    Route::post('/pick/{pick}/update',[PickController::class, 'adminUpdate'])->name('pick.adminUpdate');
     Route::get('/pick',[PickController::class, 'index'])->name('pick.index');
+    Route::resource('user',UserController::class);
+    Route::get('/league/{league}/season/{season}/event/{event}/score',[EventController::class, 'score'])->name('event.score');
 });
 
 require __DIR__.'/auth.php';

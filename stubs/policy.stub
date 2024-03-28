@@ -13,7 +13,7 @@ class {{ class }}
      */
     public function viewAny({{ user }} $user): bool
     {
-        return $user->can('list {{ modelVariable }}s');
+        return $user->hasPermissionTo('list {{ modelVariable }}s');
     }
 
     /**
@@ -21,7 +21,7 @@ class {{ class }}
      */
     public function view({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        return $user->can('list {{ modelVariable }}s',${{ modelVariable }});
+        return $user->hasPermissionTo('list {{ modelVariable }}s');
     }
 
     /**
@@ -29,7 +29,7 @@ class {{ class }}
      */
     public function create({{ user }} $user): bool
     {
-        return $user->can('create {{ modelVariable }}s');
+        return $user->hasPermissionTo('create {{ modelVariable }}s');
     }
 
     /**
@@ -37,7 +37,7 @@ class {{ class }}
      */
     public function update({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        return $user->can('edit {{ modelVariable }}s',${{ modelVariable }});
+        return $user->hasPermissionTo('edit {{ modelVariable }}s');
     }
 
     /**
@@ -45,7 +45,7 @@ class {{ class }}
      */
     public function delete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        return $user->can('delete {{ modelVariable }}s',${{ modelVariable }});
+        return $user->hasPermissionTo('delete {{ modelVariable }}s');
     }
 
     /**
@@ -53,7 +53,7 @@ class {{ class }}
      */
     public function restore({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        return $user->can('restore {{ modelVariable }}s',${{ modelVariable }});
+        return $user->hasPermissionTo('restore {{ modelVariable }}s');
     }
 
     /**
@@ -61,6 +61,6 @@ class {{ class }}
      */
     public function forceDelete({{ user }} $user, {{ model }} ${{ modelVariable }}): bool
     {
-        return $user->can('forceDelete {{ modelVariable }}s',${{ modelVariable }});
+        return $user->hasPermissionTo('forceDelete {{ modelVariable }}s');
     }
 }

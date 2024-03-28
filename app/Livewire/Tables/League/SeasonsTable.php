@@ -50,7 +50,7 @@ class SeasonsTable extends Table
     public function tableActions(): array
     {
         return [
-            Action::makeAction('showSeasonListModal()', 'Attach')
+            Action::makeClick('$wire.seasonListModal = true', 'Attach')->showLabel()->icon('fa-solid fa-link')
         ];
     }
 

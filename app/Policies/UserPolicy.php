@@ -2,26 +2,25 @@
 
 namespace App\Policies;
 
-use App\Models\League;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class LeaguePolicy
+class UserPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('list leagues');
+        return $user->hasPermissionTo('list users');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, League $league): bool
+    public function view(User $user, User $model): bool
     {
-        return $user->hasPermissionTo('list leagues');
+        return $user->hasPermissionTo('list users');
     }
 
     /**
@@ -29,38 +28,38 @@ class LeaguePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasPermissionTo('create leagues');
+        return $user->hasPermissionTo('create users');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, League $league): bool
+    public function update(User $user, User $model): bool
     {
-        return $user->hasPermissionTo('edit leagues');
+        return $user->hasPermissionTo('edit users');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, League $league): bool
+    public function delete(User $user, User $model): bool
     {
-        return $user->hasPermissionTo('delete leagues');
+        return $user->hasPermissionTo('delete users');
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, League $league): bool
+    public function restore(User $user, User $model): bool
     {
-        return $user->hasPermissionTo('restore leagues');
+        return $user->hasPermissionTo('restore users');
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, League $league): bool
+    public function forceDelete(User $user, User $model): bool
     {
-        return $user->hasPermissionTo('forceDelete leagues');
+        return $user->hasPermissionTo('forceDelete users');
     }
 }

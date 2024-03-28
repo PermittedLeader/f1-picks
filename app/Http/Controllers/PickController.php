@@ -91,4 +91,18 @@ class PickController extends Controller
 
         return redirect(route('pick.index'));
     }
+
+    public function adminCreate()
+    {
+        $this->authorize('adminCreate',[Pick::class]);
+
+        return view('pick.admin-create');
+    }
+
+    public function adminEdit(Pick $pick)
+    {
+        $this->authorize('adminUpdate',$pick);
+
+        return view('pick.admin-edit',compact('pick'));
+    }
 }

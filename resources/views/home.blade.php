@@ -22,7 +22,7 @@
                         </div>
                         
                     </x-slot:actions>
-                    Current position: 
+                    
                 </x-tiffey::card>
             @endforeach
         </div>

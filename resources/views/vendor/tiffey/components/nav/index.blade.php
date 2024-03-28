@@ -19,9 +19,11 @@
             @auth
                 <x-tiffey::nav.link href="{{ route('home') }}" active="{{ request()->routeIs('home') }}">Home</x-tiffey::nav.link>
                 <x-tiffey::nav.dropdown title="More">
+                    @role('League Administrator')
                     <x-tiffey::nav.link href="{{ route('pick.index') }}" :active="request()->routeIs('pick.*')">
                         Picks
                     </x-tiffey::nav.link>
+                    @endrole
                     @can('create',App\Models\Pickable::class)
                         <x-tiffey::nav.link href="{{ route('pickable.index') }}" :active="request()->routeIs('pickable.*')">
                             Pickables
@@ -42,6 +44,11 @@
                             Seasons
                         </x-tiffey::nav.link>
                     @endcan
+                    @role('Super Admin')
+                        <x-tiffey::nav.link href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
+                            Users
+                        </x-tiffey::nav.link>
+                    @endrole
                 </x-tiffey::nav.dropdown>
             @endauth
             @guest  

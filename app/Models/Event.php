@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Traits\Validatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -58,9 +59,12 @@ class Event extends Model
         return $this->seasons()->where('seasons.id',$season->id)->first()->pickables();
     }
 
-    public function availablePicks(League $league, Season $season)
+    public function availablePicks(League $league, Season $season, ?User $user = null)
     {
-        $userPicks = auth()->user()
+        if(is_null($user)){
+            $user = auth()->user();
+        }
+        $userPicks = $user
             ->picks()
             ->where('league_id', $league->id)
             ->where('season_id', $season->id)
@@ -77,5 +81,15 @@ class Event extends Model
     public function admins(): MorphToMany
     {
         return $this->morphToMany(User::class, 'adminable');
+    }
+
+    /**
+     * Get all of the picks for the Event
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function picks(): HasMany
+    {
+        return $this->hasMany(Pick::class);
     }
 }

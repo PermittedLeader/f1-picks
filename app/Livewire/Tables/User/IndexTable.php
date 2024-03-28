@@ -1,42 +1,43 @@
 <?php
 
-namespace App\Livewire\Tables\Season;
+namespace App\Livewire\Tables\User;
 
-use App\Models\League;
-use App\Models\Season;
-use App\Traits\FlashMessages;
+
+use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\TablesForLaravel\Http\Livewire\Table;
 use Permittedleader\TablesForLaravel\View\Components\Actions\Action;
 use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
-use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
 
 class IndexTable extends Table
 {
-    public bool $isSearchable = true;
-
-    public bool $isExportable = true;
+    public bool $isExportable = false;
 
     public bool $isFilterable = true;
 
     public function query(): Builder
     {
-        return Season::query();
+        return User::query();
     }
 
     public function columns(): array
     {
         return [
+            Column::make('id')->sortable(),
             Column::make('name')->sortable(),
+            Column::make('email')->sortable(),
+            Column::make('updated_at','Last Updated')->sortable()
         ];
     }
 
     public function actions(): array
     {
         return [
-            Action::show('season.show'),
-            Action::edit('season.edit'),
-            Action::delete('season.destroy'),
+            Action::show('user.show'),
+            Action::edit('user.update')->gate(function(){
+                return auth()->user()->can('edit users');
+            }),
+            Action::delete('user.destroy'),
         ];
     }
 }

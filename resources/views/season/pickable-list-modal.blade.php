@@ -1,8 +1,5 @@
 <div>
-    <x-tiffey::card-modal wire:model="pickableListModal">
-        <x-slot name="header" >
-            Attach Pickables
-        </x-slot>
+    <x-tiffey::modal wire:model="pickableListModal">
         <livewire:tables.pickable.attach-table :model="$season" relationshipName="pickables" />
-    </x-tiffey::card-modal>
+    </x-tiffey::modal>
 </div>

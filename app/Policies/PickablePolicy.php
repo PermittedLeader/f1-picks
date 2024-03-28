@@ -13,7 +13,7 @@ class PickablePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->can('list pickables');
+        return $user->hasPermissionTo('list pickables');
     }
 
     /**
@@ -21,7 +21,7 @@ class PickablePolicy
      */
     public function view(User $user, Pickable $pickable): bool
     {
-        return $user->can('view pickables',$pickable);
+        return $user->hasPermissionTo('view pickables');
     }
 
     /**
@@ -29,7 +29,7 @@ class PickablePolicy
      */
     public function create(User $user): bool
     {
-        return $user->can('create pickables');
+        return $user->hasPermissionTo('create pickables');
     }
 
     /**
@@ -37,7 +37,7 @@ class PickablePolicy
      */
     public function update(User $user, Pickable $pickable): bool
     {
-        return $user->can('edit pickables',$pickable);
+        return $user->hasPermissionTo('edit pickables');
     }
 
     /**
@@ -45,7 +45,7 @@ class PickablePolicy
      */
     public function delete(User $user, Pickable $pickable): bool
     {
-        return $user->can('delete pickables',$pickable);
+        return $user->hasPermissionTo('delete pickables');
     }
 
     /**
@@ -53,7 +53,7 @@ class PickablePolicy
      */
     public function restore(User $user, Pickable $pickable): bool
     {
-        return $user->can('restore pickables',$pickable);
+        return $user->hasPermissionTo('restore pickables');
     }
 
     /**
@@ -61,6 +61,6 @@ class PickablePolicy
      */
     public function forceDelete(User $user, Pickable $pickable): bool
     {
-        return $user->can('forceDelete pickables',$pickable);
+        return $user->hasPermissionTo('forceDelete pickables');
     }
 }

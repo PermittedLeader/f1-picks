@@ -7,13 +7,13 @@ use Spatie\Permission\Models\Role;
 return new class extends Migration
 {
     public $permissions = [
-        'list picks' => 'User',
-        'view picks' => 'User',
-        'create picks' => 'League Administrator',
-        'edit picks' => 'League Administrator',
-        'delete picks' => 'Super Admin',
-        'restore picks' => 'Super Admin',
-        'forceDelete picks' => 'Super Admin'
+        'list users' => 'Super Admin',
+        'view users' => 'Super Admin',
+        'create users' => 'Super Admin',
+        'edit users' => 'Super Admin',
+        'delete users' => 'Super Admin',
+        'restore users' => 'Super Admin',
+        'forceDelete users' => 'Super Admin'
     ];
 
     public function assignPermissions(string|array $roles){
@@ -48,7 +48,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        foreach($this->permissions as $permission){
+        foreach($this->permissions as $permission => $user){
             Permission::findByName($permission)->delete();
         }
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();

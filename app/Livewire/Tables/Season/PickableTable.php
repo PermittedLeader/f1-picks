@@ -46,7 +46,7 @@ class PickableTable extends Table
     public function tableActions(): array
     {
         return [
-            Action::makeAction('showPickableListModal()', 'Attach')->showLabel()->icon('fa-solid fa-link')
+            Action::makeClick('$wire.pickableListModal = true', 'Attach')->showLabel()->icon('fa-solid fa-link')
         ];
     }
 

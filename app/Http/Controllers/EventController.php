@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\League;
+use App\Models\Season;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
-use App\Models\Event;
 
 class EventController extends Controller
 {
@@ -82,5 +84,12 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->back();
+    }
+
+    public function score(League $league, Season $season, Event $event)
+    {
+        $this->authorize('score',[$event,$league,$season]);
+
+        return view('event.score',compact('event','season','league'));
     }
 }
