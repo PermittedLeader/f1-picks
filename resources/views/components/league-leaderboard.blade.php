@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-3 gap-2">
+    <div class="grid grid-cols-3 gap-2 items-end">
         <div class="flex flex-col mt-auto">
             <div class="text-center text-2xl text-bold my-2">
                 <ul>
