@@ -48,7 +48,7 @@ class IndexTable extends Table
     public function tableActions(): array
     {
         return [
-            Action::makeLink('pick.adminCreate','Create')->icon('fa-solid fa-pen-to-square')->showLabel()
+            Action::makeLink('pick.adminCreate','Create')->icon('fa-solid fa-pen-to-square')->showLabel()->gate(auth()->user()->can('adminCreate',Pick::class))
         ];
     }
 }
