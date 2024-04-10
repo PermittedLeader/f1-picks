@@ -20,6 +20,8 @@ class EventTable extends Table
 
     public bool $isFilterable = true;
 
+    public int $perPage = 25;
+
     public League $league;
 
     #[Reactive]
