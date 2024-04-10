@@ -17,6 +17,8 @@ class MembersTable extends Table
 
     public bool $isFilterable = false;
 
+    public int $perPage = 25;
+
     public string $sortBy = 'rank';
 
     public League $league;
