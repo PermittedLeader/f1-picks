@@ -69,7 +69,7 @@ class PickController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePickRequest $request, Pick $pick, League $league, Season $season, Event $event)
+    public function update(UpdatePickRequest $request, League $league, Season $season, Event $event, Pick $pick)
     {   
         $pick->update($request->validated());
 
