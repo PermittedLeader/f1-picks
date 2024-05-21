@@ -23,4 +23,9 @@ class UpdatePickRequest extends FormRequest
     {
         return $this->pick->rules();
     }
+
+    public function prepareForValidation()
+    {
+        $this->merge(['user_id'=>auth()->id()]);
+    }
 }
