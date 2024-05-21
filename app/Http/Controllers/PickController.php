@@ -75,7 +75,7 @@ class PickController extends Controller
 
         self::success($pick->name.' '.__('has been successfully updated'));
 
-        return redirect(route('pick.show',$pick));
+        return redirect(route('league.show', $league));
     }
 
     /**
