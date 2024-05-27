@@ -35,7 +35,7 @@ class Event extends Model
     {
         return [
             'name' => 'required|string|max:255',
-            'date' => 'required|date|after:today',
+            'date' => 'required|date',
             'pick_date' => 'required|date|before:date'
         ];
     }
