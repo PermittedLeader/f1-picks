@@ -1,6 +1,6 @@
 <div>
     <div>
-        <x-tiffey::input.select label="Event" wire:model.live="season_id">
+        <x-tiffey::input.select label="Season" wire:model.live="season_id">
             @foreach ($league->seasons as $season)
                 <option value="{{ $season->id }}">
                     {{ $season->name }}
