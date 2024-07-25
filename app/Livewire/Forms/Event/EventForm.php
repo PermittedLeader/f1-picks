@@ -5,7 +5,7 @@ use App\Models\Event;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Actions\Action;
-use Permittedleader\Forms\View\Components\Fields\Datetime;
+use Permittedleader\Forms\View\Components\Fields\DateTime;
 
 class EventForm extends Form
 {
@@ -27,8 +27,8 @@ class EventForm extends Form
     {
         return [
             Text::make('name',value: $this->event->name),
-            Datetime::make('date', value: $this->event->date),
-            Datetime::make('pick_date', 'Pick by...', value: $this->event->pick_date),
+            DateTime::make('date', value: $this->event->date),
+            DateTime::make('pick_date', 'Pick by...', value: $this->event->pick_date),
         ];
     }
 
