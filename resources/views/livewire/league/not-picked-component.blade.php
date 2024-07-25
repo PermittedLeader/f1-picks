@@ -16,6 +16,6 @@
         </x-tiffey::select>
     </div>
     <div>
-        <livewire:tables.pick.event-table :$league :$event_id :$season_id />
+        <livewire:tables.pick.event-not-picked-table :$league :$event_id :$season_id />
     </div>
 </div>

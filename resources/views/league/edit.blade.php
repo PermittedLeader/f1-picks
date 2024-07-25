@@ -12,4 +12,8 @@
         <x-slot:header>Admins</x-slot:header>
         <livewire:tables.league.admins-table :league="$league" lazy />
     </x-tiffey::card>
+    <x-tiffey::card>
+        <x-slot:header>Missing picks</x-slot:header>
+        <livewire:league.not-picked-component :league="$league" lazy />
+    </x-tiffey::card>
 </x-tiffey::layouts.main-layout>

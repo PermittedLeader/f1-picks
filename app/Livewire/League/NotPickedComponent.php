@@ -7,7 +7,7 @@ use App\Models\League;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
 
-class PicksComponent extends Component
+class NotPickedComponent extends Component
 {
 
     public $event_id;
@@ -24,6 +24,6 @@ class PicksComponent extends Component
     
     public function render()
     {
-        return view('livewire.league.picks-component');
+        return view('livewire.league.not-picked-component');
     }
 }
