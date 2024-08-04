@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Validation\Rules\Password;
 use App\Events\UserCreated;
-use App\Traits\Validatable;
 
+use App\Traits\Validatable;
 use Illuminate\Validation\Rule;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -63,7 +64,8 @@ class User extends Authenticatable
             'email'=>[
                 'required',
                 Rule::unique('users','email')->ignore($this)
-            ]
+            ],
+            'password' => ['required', Password::defaults()]
         ];
     }
 
