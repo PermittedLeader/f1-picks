@@ -32,6 +32,6 @@ class StoreUserRequest extends FormRequest
      */
     protected function passedValidation(): void
     {
-        $this->replace(['password' => Hash::make(Str::random(16))]);
+        $this->replace(['password' => Hash::make(Str::password())]);
     }
 }
