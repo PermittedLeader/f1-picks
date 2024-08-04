@@ -48,15 +48,18 @@ class MembersTable extends Table
                 p.id = ps.pickable_id
             WHERE
                 ps.season_id = '".$this->season_id."'
-                AND id NOT IN (
+                AND p.id NOT IN (
                 SELECT
                     pickable_id
                 from
                     picks p2
+                JOIN events e on
+                    e.id = p2.event_id    
                 where
                     league_id = '".$this->league->id."'
-                    and season_id = '".$this->season_id."'
-                    and user_id = users.id)
+                    AND e.pick_date < NOW()
+                    AND season_id = '".$this->season_id."'
+                    AND user_id = users.id)
             ORDER BY
                 ps.`order` ASC
                 ) AS 'remainingTopPicks'");
