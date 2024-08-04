@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
@@ -36,6 +37,8 @@ class UserController extends Controller
         $this->authorize('create',User::class);
         
         $user = User::create($request->validated());
+
+        event(new Registered($user));
 
         self::success($user->name.' '.__('has been successfully created'));
 
