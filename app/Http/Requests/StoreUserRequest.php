@@ -30,8 +30,8 @@ class StoreUserRequest extends FormRequest
     /**
      * Handle a passed validation attempt.
      */
-    protected function passedValidation(): void
+    protected function prepareForValidation(): void
     {
-        $this->replace(['password' => Hash::make(Str::password())]);
+        $this->mergeIfMissing(['password' => Hash::make(Str::password(16))]);
     }
 }
