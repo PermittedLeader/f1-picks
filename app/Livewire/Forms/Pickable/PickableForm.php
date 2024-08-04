@@ -26,7 +26,8 @@ class PickableForm extends Form
     {
         return [
             Text::make('name',value: $this->pickable->name),
-            Text::make('team',value: $this->pickable->team)
+            Text::make('team',value: $this->pickable->team),
+            Text::make('short_name',value: $this->pickable->short_name)
         ];
     }
 

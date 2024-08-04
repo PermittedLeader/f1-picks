@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePickableRequest extends FormRequest
@@ -22,5 +23,10 @@ class UpdatePickableRequest extends FormRequest
     public function rules(): array
     {
         return $this->pickable->rules();
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->mergeIfMissing(['short_name'=>Str::upper(Str::limit($this->input('name'),3))]);
     }
 }
