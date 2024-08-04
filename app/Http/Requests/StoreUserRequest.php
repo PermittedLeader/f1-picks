@@ -32,6 +32,6 @@ class StoreUserRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        $this->mergeIfMissing(['password' => Hash::make(Str::random(16))]);
+        $this->mergeIfMissing(['password' => Hash::make(Str::password(16))]);
     }
 }

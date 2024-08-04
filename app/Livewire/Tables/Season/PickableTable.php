@@ -25,7 +25,7 @@ class PickableTable extends Table
 
     public function query(): Builder
     {
-        return $this->season->pickables();
+        return $this->season->pickables()->withPivot(['order']);
     }
 
     public function columns(): array
@@ -33,6 +33,7 @@ class PickableTable extends Table
         return [
             Column::make('name')->sortable(),
             Column::make('team')->sortable(),
+            Column::make('*','Order')->formatDisplay(fn($value)=>$value->pivot->order)->sortable(),
         ];
     }
 
@@ -46,7 +47,8 @@ class PickableTable extends Table
     public function tableActions(): array
     {
         return [
-            Action::makeClick('$wire.pickableListModal = true', 'Attach')->showLabel()->icon('fa-solid fa-link')
+            Action::makeClick('$wire.pickableListModal = true', 'Attach')->showLabel()->icon('fa-solid fa-link'),
+            Action::makeLink(fn()=>route('order.edit',$this->season->id),'Assign order')->showLabel()->icon('fa-solid fa-sort')
         ];
     }
 

@@ -48,7 +48,7 @@ class Season extends Model
      */
     public function pickables(): BelongsToMany
     {
-        return $this->belongsToMany(Pickable::class);
+        return $this->belongsToMany(Pickable::class)->withPivot('order')->orderByPivot('order');
     }
 
      /**

@@ -35,4 +35,9 @@
         <x-slot:header>Events</x-slot:header>
         <livewire:tables.league.events-table :league="$league" />
     </x-tiffey::card>
+
+    <x-tiffey::card collapsible="true" open="false">
+        <x-slot:header>Season leaderboard</x-slot:header>
+        <livewire:league.season-leaderboard :$league lazy />
+    </x-tiffey::card>
 </x-tiffey::layouts.main-layout>

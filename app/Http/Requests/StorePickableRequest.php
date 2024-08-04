@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 use Facades\App\Models\Pickable;
+use Illuminate\Foundation\Http\FormRequest;
 
 class StorePickableRequest extends FormRequest
 {
@@ -23,5 +24,10 @@ class StorePickableRequest extends FormRequest
     public function rules(): array
     {
         return Pickable::rules();
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->mergeIfMissing(['short_name'=>Str::upper(Str::limit($this->input('name'),3))]);
     }
 }

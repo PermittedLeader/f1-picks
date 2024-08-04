@@ -28,6 +28,7 @@ class IndexTable extends Table
         return [
             Column::make('name')->sortable(),
             Column::make('team')->sortable(),
+            Column::make('short_name')->sortable(),
         ];
     }
 

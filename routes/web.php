@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PickController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PickableController;
-use App\Http\Controllers\PickController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\PickableOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('pickable', PickableController::class);
+    Route::get('season/{season}/order', [PickableOrderController::class, 'edit'])->name('order.edit');
+    Route::patch('season/{season}/order', [PickableOrderController::class, 'update'])->name('order.update');
     Route::resource('season', SeasonController::class);
     Route::resource('league', LeagueController::class);
     Route::get('/league/{league}/join', [LeagueController::class,'join'])->name('league.join');
