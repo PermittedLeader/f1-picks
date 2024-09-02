@@ -37,11 +37,11 @@ class MembersTable extends Table
         return $this->league->members()
         ->join("picks", "users.id", "=", "picks.user_id")
         ->where("picks.league_id", $this->league->id)
-        /* ->when($this->season_id,function($query){
+        ->when($this->season_id,function($query){
             $query->where('picks.season_id',$this->season_id);
             $query->selectRaw("(
             SELECT
-                SUBSTRING_INDEX(GROUP_CONCAT(short_name ORDER BY ps.`order` SEPARATOR ', ') ,', ','".$this->topNRemaining."')
+                SUBSTRING_INDEX(GROUP_CONCAT(short_name ORDER BY ps.order SEPARATOR ', ') ,', ','".$this->topNRemaining."')
             FROM
                 pickables p
             JOIN pickable_season ps on
@@ -61,7 +61,7 @@ class MembersTable extends Table
                     AND season_id = '".$this->season_id."'
                     AND user_id = users.id)
                 ) AS 'remainingTopPicks'");
-        }) */
+        })
         ->selectRaw("sum(`picks`.`score`) AS 'score'")
         ->selectRaw(
             DB::raw("DENSE_RANK() OVER (ORDER BY sum(`picks`.`score`) DESC) as \"rank\"")
@@ -77,9 +77,9 @@ class MembersTable extends Table
             Column::make('name')->sortable(),
             Column::make('score', 'Score')->sortable()
         ];
-        /* if($this->season_id){
+        if($this->season_id){
             $columns[] = Column::make('remainingTopPicks','Best '.$this->topNRemaining.' picks remaining');
-        } */
+        }
         return $columns;
     }
 
