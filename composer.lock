@@ -3149,16 +3149,16 @@
         },
         {
             "name": "permittedleader/forms-for-laravel",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/forms-for-laravel.git",
-                "reference": "8cfbea71535b25c9a7e7c8e6d04e20234c0b4ca7"
+                "reference": "f9d8341245ffa529702493c7fd08d253383e8c38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/8cfbea71535b25c9a7e7c8e6d04e20234c0b4ca7",
-                "reference": "8cfbea71535b25c9a7e7c8e6d04e20234c0b4ca7",
+                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/f9d8341245ffa529702493c7fd08d253383e8c38",
+                "reference": "f9d8341245ffa529702493c7fd08d253383e8c38",
                 "shasum": ""
             },
             "require": {
@@ -3201,10 +3201,10 @@
             ],
             "description": "Forms for Laravel",
             "support": {
-                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.4.1",
+                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.4.2",
                 "issues": "https://github.com/PermittedLeader/forms-for-laravel/issues"
             },
-            "time": "2024-09-02T09:44:49+00:00"
+            "time": "2024-09-02T14:20:01+00:00"
         },
         {
             "name": "permittedleader/tables-for-laravel",
