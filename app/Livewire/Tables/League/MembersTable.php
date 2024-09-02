@@ -60,8 +60,6 @@ class MembersTable extends Table
                     AND e.pick_date < NOW()
                     AND season_id = '".$this->season_id."'
                     AND user_id = users.id)
-            ORDER BY
-                ps.`order` ASC
                 ) AS 'remainingTopPicks'");
         })
         ->selectRaw("sum(`picks`.`score`) AS 'score'")
