@@ -26,7 +26,6 @@
             <livewire:tables.league.members-table :league="$league" lazy />
             @else
             <livewire:league.season-leaderboard :$league lazy />
-            <livewire:tables.league.members-table :league="$league" lazy />
             @endif
             
         </x-tiffey::card>
