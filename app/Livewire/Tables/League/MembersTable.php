@@ -41,7 +41,7 @@ class MembersTable extends Table
             $query->where('picks.season_id',$this->season_id);
             $query->selectRaw("(
             SELECT
-                SUBSTRING_INDEX(GROUP_CONCAT(short_name SEPARATOR ', ') ,', ','".$this->topNRemaining."')
+                SUBSTRING_INDEX(GROUP_CONCAT(short_name ORDER BY ps.`order` SEPARATOR ', ') ,', ','".$this->topNRemaining."')
             FROM
                 pickables p
             JOIN pickable_season ps on

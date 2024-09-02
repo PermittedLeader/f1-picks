@@ -49,6 +49,10 @@ class LeagueController extends Controller
     {
         $this->authorize('view',$league);
 
+        if($league->seasons->count() < 1){
+            self::warning('Leagues need at least a single season of events');
+        }
+
         return view('league.show', compact('league'));
     }
 

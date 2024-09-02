@@ -16,13 +16,17 @@
         </div>
         
     </x-tiffey::card>
-
+    @if($league->seasons->count() > 0)
     <x-tiffey::card collapsible="true">
         <x-slot:header><x-tiffey::icon icon="fa-solid fa-ranking-star" label="league table" /> League Table</x-slot:header>
         <x-league-leaderboard :league="$league" />
         <x-tiffey::card collapsible="true" open="false">
             <x-slot:header>Full table</x-slot:header>
+            @if($league->seasons->count() > 1)
             <livewire:tables.league.members-table :league="$league" lazy />
+            @else
+            <livewire:league.season-leaderboard :$league lazy />
+            @endif
         </x-tiffey::card>
     </x-tiffey::card>
 
@@ -35,9 +39,11 @@
         <x-slot:header>Events</x-slot:header>
         <livewire:tables.league.events-table :league="$league" />
     </x-tiffey::card>
-
+    @endif
+    @if($league->seasons->count() > 1)
     <x-tiffey::card collapsible="true" open="false">
         <x-slot:header>Season leaderboard</x-slot:header>
         <livewire:league.season-leaderboard :$league lazy />
     </x-tiffey::card>
+    @endif
 </x-tiffey::layouts.main-layout>
