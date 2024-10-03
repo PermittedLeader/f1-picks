@@ -50,6 +50,17 @@
                         </x-tiffey::nav.link>
                     @endrole
                 </x-tiffey::nav.dropdown>
+                
+                @role('Super Admin')
+                <x-tiffey::nav.dropdown title="Admin">
+                    <x-tiffey::nav.link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.*')">
+                    {{ trans_choice('auth::auth.roles.name',2) }}
+                </x-tiffey::nav.link>
+                <x-tiffey::nav.link href="{{ route('permissions.index') }}" :active="request()->routeIs('permissions.*')">
+                    {{ trans_choice('auth::auth.permissions.name',2) }}
+                </x-tiffey::nav.link>
+                </x-tiffey::nav.dropdown>
+                @endrole 
             @endauth
             @guest  
                 <x-tiffey::nav.link href="{{ route('welcome') }}" active="{{ request()->routeIs('welcome') }}">Home</x-tiffey::nav.link>

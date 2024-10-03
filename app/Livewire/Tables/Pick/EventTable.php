@@ -10,9 +10,9 @@ use App\Models\Season;
 use App\Models\Pickable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Livewire\Attributes\Reactive;
-use Permittedleader\TablesForLaravel\Http\Livewire\Table;
-use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
-use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsTo;
+use Permittedleader\Tables\Http\Livewire\Table;
+use Permittedleader\Tables\View\Components\Columns\Column;
+use Permittedleader\Tables\View\Components\Columns\BelongsTo;
 
 class EventTable extends Table
 {
