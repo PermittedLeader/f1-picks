@@ -83,11 +83,11 @@ class PickController extends Controller
      */
     public function destroy(Pick $pick)
     {
-        $this->authorize('create',Pick::class);
+        $this->authorize('delete',$pick);
         
         $pick->delete();
 
-        self::success($pick->name.' '.__('has been successfully deleted'));
+        self::success(__('Pick has been successfully deleted'));
 
         return redirect(route('pick.index'));
     }

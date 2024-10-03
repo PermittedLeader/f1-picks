@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Reactive;
-use Permittedleader\TablesForLaravel\Http\Livewire\Table;
-use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
+use Permittedleader\Tables\Http\Livewire\Table;
+use Permittedleader\Tables\View\Components\Columns\Column;
 
 class MembersTable extends Table
 {
@@ -59,7 +59,8 @@ class MembersTable extends Table
                     league_id = '".$this->league->id."'
                     AND e.pick_date < NOW()
                     AND season_id = '".$this->season_id."'
-                    AND user_id = users.id)
+                    AND user_id = users.id
+                    AND p2.deleted_at IS NULL)
                 ) AS 'remainingTopPicks'");
         })
         ->selectRaw("sum(`picks`.`score`) AS 'score'")

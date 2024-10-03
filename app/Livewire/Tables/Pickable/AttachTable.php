@@ -4,8 +4,8 @@ namespace App\Livewire\Tables\Pickable;
 
 use App\Models\Pickable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use Permittedleader\TablesForLaravel\Http\Livewire\BelongsToManyTable;
-use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
+use Permittedleader\Tables\Http\Livewire\BelongsToManyTable;
+use Permittedleader\Tables\View\Components\Columns\Column;
 
 class AttachTable extends BelongsToManyTable
 {

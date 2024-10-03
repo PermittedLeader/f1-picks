@@ -7,10 +7,10 @@ use App\Models\League;
 use App\Models\Season;
 use App\Traits\FlashMessages;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use Permittedleader\TablesForLaravel\Http\Livewire\Table;
-use Permittedleader\TablesForLaravel\View\Components\Actions\Action;
-use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
-use Permittedleader\TablesForLaravel\View\Components\Columns\BelongsToMany;
+use Permittedleader\Tables\Http\Livewire\Table;
+use Permittedleader\Tables\View\Components\Actions\Action;
+use Permittedleader\Tables\View\Components\Columns\Column;
+use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
 
 class EventsTable extends Table
 {

@@ -5,9 +5,9 @@ namespace App\Livewire\Tables\User;
 
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use Permittedleader\TablesForLaravel\Http\Livewire\Table;
-use Permittedleader\TablesForLaravel\View\Components\Actions\Action;
-use Permittedleader\TablesForLaravel\View\Components\Columns\Column;
+use Permittedleader\Tables\Http\Livewire\Table;
+use Permittedleader\Tables\View\Components\Actions\Action;
+use Permittedleader\Tables\View\Components\Columns\Column;
 
 class IndexTable extends Table
 {

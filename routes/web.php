@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pick/{pick}/update',[PickController::class, 'adminEdit'])->name('pick.adminEdit');
     Route::post('/pick/{pick}/update',[PickController::class, 'adminUpdate'])->name('pick.adminUpdate');
     Route::get('/pick',[PickController::class, 'index'])->name('pick.index');
+    Route::delete('/pick/{pick}',[PickController::class,'destroy'])->name('pick.destroy');
     Route::resource('user',UserController::class);
     Route::get('/league/{league}/season/{season}/event/{event}/score',[EventController::class, 'score'])->name('event.score');
 });
