@@ -44,14 +44,14 @@
                             Seasons
                         </x-tiffey::nav.link>
                     @endcan
-                    @role('Super Admin')
+                    @can('list users')
                         <x-tiffey::nav.link href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
                             Users
                         </x-tiffey::nav.link>
-                    @endrole
+                    @endcan
                 </x-tiffey::nav.dropdown>
                 
-                @role('Super Admin')
+                @canany(['list roles','list permissions'])
                 <x-tiffey::nav.dropdown title="Admin">
                     <x-tiffey::nav.link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.*')">
                     {{ trans_choice('auth::auth.roles.name',2) }}
@@ -60,7 +60,7 @@
                     {{ trans_choice('auth::auth.permissions.name',2) }}
                 </x-tiffey::nav.link>
                 </x-tiffey::nav.dropdown>
-                @endrole 
+                @endcan 
             @endauth
             @guest  
                 <x-tiffey::nav.link href="{{ route('welcome') }}" active="{{ request()->routeIs('welcome') }}">Home</x-tiffey::nav.link>
