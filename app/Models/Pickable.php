@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Permittedleader\Tables\Traits\Searchable;
 
 class Pickable extends Model
 {
-    use HasFactory, Validatable, SoftDeletes;
+    use HasFactory, Validatable, SoftDeletes, Searchable;
 
     protected $fillable = [
         'name',
