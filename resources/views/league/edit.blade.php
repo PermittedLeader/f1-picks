@@ -15,7 +15,7 @@
             </x-slot:header>
             <x-slot:actions>
                 <x-tiffey::button @click="showModal = true">
-                    {{ __('crud.common.attach')}}
+                    {{ __('tables::tables.relationships.attach')}}
                 </x-tiffey::button>
             </x-slot:actions>
             <livewire:tables.league.admins-table :model="$league" relationshipName="admins" lazy />
