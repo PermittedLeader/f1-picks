@@ -20,6 +20,8 @@ class PickForm extends Form
 
     public function mount(?Pick $pick)
     {
+        $this->label = trans_choice('crud.picks.plural',1);
+
         if ($pick != '') {
             $this->pick = $pick;
         }

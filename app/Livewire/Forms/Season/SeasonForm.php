@@ -12,6 +12,8 @@ class SeasonForm extends Form
 
     public function mount(?Season $season)
     {
+        $this->label = trans_choice('crud.seasons.plural',1);
+        
         if ($season != '') {
             $this->season = $season;
         }
@@ -25,7 +27,7 @@ class SeasonForm extends Form
     public function fields(): array
     {
         return [
-            Text::make('name',value: $this->season->name),
+            Text::make('name', __('crud.seasons.inputs.name'),value: $this->season->name),
         ];
     }
 

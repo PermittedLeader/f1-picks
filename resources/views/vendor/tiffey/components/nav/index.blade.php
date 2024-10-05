@@ -12,41 +12,41 @@
             <div @click="open = ! open" class="my-2 mr-4 flex md:hidden">
                 <i class="fa-solid fa-bars" x-show="!open"></i>
                 <i class="fa-solid fa-xmark" x-show="open"></i>
-                <span class="fa-sr-only">Show/hide menu</span>
+                <span class="fa-sr-only">{{ __('app.show_hide_menu') }}</span>
             </div>
         </div>
         <div class="flex flex-col md:flex md:flex-row md:gap-2 border-solid border-t md:border-none" x-bind:class="{ 'hidden': !open }">
             @auth
-                <x-tiffey::nav.link href="{{ route('home') }}" active="{{ request()->routeIs('home') }}">Home</x-tiffey::nav.link>
+                <x-tiffey::nav.link href="{{ route('home') }}" active="{{ request()->routeIs('home') }}">{{ __('app.home') }}</x-tiffey::nav.link>
                 <x-tiffey::nav.dropdown title="More">
                     @role('League Administrator')
                     <x-tiffey::nav.link href="{{ route('pick.index') }}" :active="request()->routeIs('pick.*')">
-                        Picks
+                        {{ trans_choice('crud.picks.plural',2) }}
                     </x-tiffey::nav.link>
                     @endrole
                     @can('create',App\Models\Pickable::class)
                         <x-tiffey::nav.link href="{{ route('pickable.index') }}" :active="request()->routeIs('pickable.*')">
-                            Pickables
+                            {{ trans_choice('crud.pickables.plural',2) }}
                         </x-tiffey::nav.link>
                     @endcan
                     @can('viewAny',App\Models\League::class)
                         <x-tiffey::nav.link href="{{ route('league.index') }}" :active="request()->routeIs('league.*')">
-                            Leagues
+                            {{ trans_choice('crud.leagues.plural',2) }}
                         </x-tiffey::nav.link>
                     @endcan
                     @can('viewAny',App\Models\Event::class)
                         <x-tiffey::nav.link href="{{ route('event.index') }}" :active="request()->routeIs('event.*')">
-                            Events
+                            {{ trans_choice('crud.events.plural',2) }}
                         </x-tiffey::nav.link>
                     @endcan
                     @can('viewAny',App\Models\Season::class)
                         <x-tiffey::nav.link href="{{ route('season.index') }}" :active="request()->routeIs('season.*')">
-                            Seasons
+                            {{ trans_choice('crud.seasons.plural',2) }}
                         </x-tiffey::nav.link>
                     @endcan
                     @can('list users')
                         <x-tiffey::nav.link href="{{ route('user.index') }}" :active="request()->routeIs('user.*')">
-                            Users
+                            {{ trans_choice('crud.users.plural',2) }}
                         </x-tiffey::nav.link>
                     @endcan
                 </x-tiffey::nav.dropdown>
@@ -63,7 +63,7 @@
                 @endcan 
             @endauth
             @guest  
-                <x-tiffey::nav.link href="{{ route('welcome') }}" active="{{ request()->routeIs('welcome') }}">Home</x-tiffey::nav.link>
+                <x-tiffey::nav.link href="{{ route('welcome') }}" active="{{ request()->routeIs('welcome') }}">{{ __('app.home') }}</x-tiffey::nav.link>
             @endguest
             
         </div>
@@ -71,13 +71,13 @@
     <div class="flex flex-col md:flex md:flex-row md:gap-2" x-bind:class="{ 'hidden': !open }">
         @auth
         <x-tiffey::nav.dropdown title="{{ Auth::user()->name }}" position="right">
-            <x-tiffey::nav.link href="{{ route('profile.update') }}" :active="request()->routeIs('dashboard')">Profile</x-tiffey::nav.link>
+            <x-tiffey::nav.link href="{{ route('profile.update') }}" :active="request()->routeIs('dashboard')">{{ __('app.profile') }}</x-tiffey::nav.link>
         </x-tiffey::nav.dropdown>
         <div class="h-full flex place-items-center pl-2 py-1">
         <form method="POST" action="{{ route('logout') }}" class="ml-3">
             @csrf
             <x-tiffey::form-button href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" color="bg-brand-mid">
-                {{ __('Logout') }}
+                {{ __('app.logout') }}
             </x-tiffey::form-button>
         </form>
         </div>
@@ -85,12 +85,12 @@
     @guest
         @if (Route::has('register'))
         <x-tiffey::nav.link href="{{ route('register') }}" active="{{request()->routeIs('register')}}">
-            {{ __('Register') }}
+            {{ __('app.register') }}
         </x-tiffey::nav.link>
         @endif
         <div class="h-full flex place-items-center pl-2 py-1">
             <x-tiffey::button href="{{ route('login') }}" color="bg-brand-mid">
-                {{ __('Login') }}
+                {{ __('app.login') }}
             </x-tiffey::button>
         </div>
             
