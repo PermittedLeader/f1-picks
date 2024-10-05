@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Permittedleader\Tables\Traits\Searchable;
 
 class Pick extends Model
 {
-    use HasFactory, Validatable, SoftDeletes;
+    use HasFactory, Validatable, SoftDeletes, Searchable;
 
     public $fillable = [
         'event_id',

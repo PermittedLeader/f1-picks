@@ -17,10 +17,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Permittedleader\Tables\Traits\Searchable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Validatable, HasRoles, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, Validatable, HasRoles, SoftDeletes, Searchable;
 
     /**
      * The attributes that are mass assignable.

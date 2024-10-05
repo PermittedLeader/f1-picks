@@ -12,6 +12,8 @@ class PickableForm extends Form
 
     public function mount(?Pickable $pickable)
     {
+        $this->label = trans_choice('crud.pickables.plural',1);
+
         if ($pickable != '') {
             $this->pickable = $pickable;
         }
