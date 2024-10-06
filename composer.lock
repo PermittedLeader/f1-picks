@@ -2804,24 +2804,24 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "a6d3a6d1f545f01ef38e60f375d1cf1f4de98188"
+                "reference": "9522dad6211c4d995a01a9ac529da88d0b0ba7b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/a6d3a6d1f545f01ef38e60f375d1cf1f4de98188",
-                "reference": "a6d3a6d1f545f01ef38e60f375d1cf1f4de98188",
+                "url": "https://api.github.com/repos/nette/schema/zipball/9522dad6211c4d995a01a9ac529da88d0b0ba7b5",
+                "reference": "9522dad6211c4d995a01a9ac529da88d0b0ba7b5",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^4.0",
-                "php": "8.1 - 8.3"
+                "php": "8.1 - 8.4"
             },
             "require-dev": {
-                "nette/tester": "^2.4",
+                "nette/tester": "^2.5.2",
                 "phpstan/phpstan-nette": "^1.0",
                 "tracy/tracy": "^2.8"
             },
@@ -2860,9 +2860,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.3.0"
+                "source": "https://github.com/nette/schema/tree/v1.3.1"
             },
-            "time": "2023-12-11T11:54:22+00:00"
+            "time": "2024-10-05T03:01:50+00:00"
         },
         {
             "name": "nette/utils",
@@ -3209,16 +3209,16 @@
         },
         {
             "name": "permittedleader/tiffey",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/tiffey.git",
-                "reference": "42dad190b7320e200f5a15cd627bda24e0114af5"
+                "reference": "66d95d874c5f3b37dd3d27270e205fe0b7741edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tiffey/zipball/42dad190b7320e200f5a15cd627bda24e0114af5",
-                "reference": "42dad190b7320e200f5a15cd627bda24e0114af5",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey/zipball/66d95d874c5f3b37dd3d27270e205fe0b7741edb",
+                "reference": "66d95d874c5f3b37dd3d27270e205fe0b7741edb",
                 "shasum": ""
             },
             "require": {
@@ -3260,22 +3260,22 @@
             "description": "Tiffey template for Laravel. Built in Blade",
             "support": {
                 "issues": "https://github.com/PermittedLeader/tiffey/issues",
-                "source": "https://github.com/PermittedLeader/tiffey/tree/v1.5.0"
+                "source": "https://github.com/PermittedLeader/tiffey/tree/v1.5.1"
             },
-            "time": "2024-10-03T19:01:38+00:00"
+            "time": "2024-10-06T10:56:46+00:00"
         },
         {
             "name": "permittedleader/tiffey-auth",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/tiffey-auth.git",
-                "reference": "71e40bd99f0f48264125eabca785c6395d207cb0"
+                "reference": "75ecc4c2c0e3720d7612b5f5952292f937599a3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tiffey-auth/zipball/71e40bd99f0f48264125eabca785c6395d207cb0",
-                "reference": "71e40bd99f0f48264125eabca785c6395d207cb0",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey-auth/zipball/75ecc4c2c0e3720d7612b5f5952292f937599a3d",
+                "reference": "75ecc4c2c0e3720d7612b5f5952292f937599a3d",
                 "shasum": ""
             },
             "require": {
@@ -3317,9 +3317,9 @@
             "description": "Role and Permission management for Laravel using the Tiffey layout engine",
             "support": {
                 "issues": "https://github.com/PermittedLeader/tiffey-auth/issues",
-                "source": "https://github.com/PermittedLeader/tiffey-auth/tree/v1.0.3"
+                "source": "https://github.com/PermittedLeader/tiffey-auth/tree/v1.0.4"
             },
-            "time": "2024-10-03T18:45:42+00:00"
+            "time": "2024-10-06T10:57:17+00:00"
         },
         {
             "name": "permittedleader/tiffey-tables",
