@@ -7,6 +7,7 @@ return [
         'create'=>'Create',
         'created'=>'Created',
         'edit'=>'Edit',
+        'save'=>'Save',
         'saved'=>'Saved',
         'updated'=>'Updated',
         'deleted'=>'Deleted',
