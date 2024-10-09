@@ -3270,16 +3270,16 @@
         },
         {
             "name": "permittedleader/tiffey-auth",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/tiffey-auth.git",
-                "reference": "6f67e747816cad6fe6c6f8cf536b3b2b544deda0"
+                "reference": "b8569085fe692cdd00629739c3328604d12a63c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/tiffey-auth/zipball/6f67e747816cad6fe6c6f8cf536b3b2b544deda0",
-                "reference": "6f67e747816cad6fe6c6f8cf536b3b2b544deda0",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey-auth/zipball/b8569085fe692cdd00629739c3328604d12a63c1",
+                "reference": "b8569085fe692cdd00629739c3328604d12a63c1",
                 "shasum": ""
             },
             "require": {
@@ -3321,9 +3321,9 @@
             "description": "Role and Permission management for Laravel using the Tiffey layout engine",
             "support": {
                 "issues": "https://github.com/PermittedLeader/tiffey-auth/issues",
-                "source": "https://github.com/PermittedLeader/tiffey-auth/tree/v1.1.0"
+                "source": "https://github.com/PermittedLeader/tiffey-auth/tree/v1.1.1"
             },
-            "time": "2024-10-09T19:27:17+00:00"
+            "time": "2024-10-09T19:42:25+00:00"
         },
         {
             "name": "permittedleader/tiffey-tables",
