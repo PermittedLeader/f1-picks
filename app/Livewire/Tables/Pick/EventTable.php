@@ -39,8 +39,8 @@ class EventTable extends Table
     {
         return [
             BelongsTo::make('user')->model(User::class)->sortable()->filterable(),
-            BelongsTo::make('season')->model(Season::class)->sortable()->filterable(),
             BelongsTo::make('pickable','Pick')->model(Pickable::class)->sortable()->filterable(),
+            Column::make('score')->sortable()
         ];
     }
 
