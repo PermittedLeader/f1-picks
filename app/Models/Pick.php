@@ -21,7 +21,8 @@ class Pick extends Model
         'pickable_id',
         'season_id',
         'user_id',
-        'score'
+        'score',
+        'joker'
     ];
 
     public function rules(): array
@@ -39,7 +40,8 @@ class Pick extends Model
             'league_id'=>'required|exists:leagues,id',
             'season_id'=>'required|exists:seasons,id',
             'pickable_id'=>'required|exists:pickables,id',
-            'user_id'=>'required|exists:users,id'
+            'user_id'=>'required|exists:users,id',
+            'joker'=>'required|boolean'
         ];
     }
 
