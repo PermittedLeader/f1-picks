@@ -20,6 +20,8 @@ class AdminPickForm extends Component
     public $selectedEventId;
     public $selectedPickableId;
 
+    public $isJoker = false;
+
     public $method;
 
     public Pick $pick;
@@ -89,7 +91,7 @@ class AdminPickForm extends Component
 
     public function eventPickables()
     {
-        return $this->event->availablePicks($this->league,$this->season,$this->selectedUser);
+        return $this->event->availablePicks($this->league,$this->season,$this->selectedUser,$this->isJoker);
     }
 
     public function create()

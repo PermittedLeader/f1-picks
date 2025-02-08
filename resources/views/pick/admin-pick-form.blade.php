@@ -35,6 +35,12 @@
                 </x-tiffey::input.select>
             @endisset
             @isset($this->event)
+                @if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable($this->selectedUser, $this->league))
+                    <x-forms::input.toggle
+                        label="Joker?"
+                        wire:model.live="isJoker"
+                        />
+                @endif
                 <x-tiffey::input.select label="Pick" wire:model.live="selectedPickableId">
                     <option value="">-</option>
                     @foreach ($this->eventPickables() as $pickable)
