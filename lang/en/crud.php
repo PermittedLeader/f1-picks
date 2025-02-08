@@ -11,7 +11,8 @@ return [
         'saved'=>'Saved',
         'updated'=>'Updated',
         'deleted'=>'Deleted',
-        'restored'=>'Restored'
+        'restored'=>'Restored',
+        'remove'=>'Remove'
     ],
     'events'=>[
         'plural'=>'Event|Events'
@@ -28,7 +29,10 @@ return [
     'seasons'=>[
         'plural'=>'Season|Seasons',
         'inputs'=>[
-            'name'=>'Name'
+            'name'=>'Name',
+            'jokers'=>'Joker rules',
+            'joker_pick_count'=>'Allowed joker picks',
+            'joker_restrictions'=>'Restrictions for jokers'
         ]
         ],
     'users'=>[
