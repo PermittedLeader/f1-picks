@@ -10,6 +10,9 @@ use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Fields\Hidden;
 use Permittedleader\Forms\View\Components\Actions\Action;
 use Permittedleader\Forms\View\Components\Fields\BelongsTo;
+use Permittedleader\Forms\View\Components\Fields\Boolean;
+
+use function PHPUnit\Framework\isNull;
 
 class PickForm extends Form
 {
@@ -17,13 +20,15 @@ class PickForm extends Form
     public Pick $pick;
     public League $league;
     public Season $season;
+    public bool $isJoker = false;
 
-    public function mount(?Pick $pick)
+    public function boot(?Pick $pick = null)
     {
         $this->label = trans_choice('crud.picks.plural',1);
-
-        if ($pick != '') {
+        
+        if (!is_null($pick)) {
             $this->pick = $pick;
+            $this->isJoker = $this->pick->joker ?? false;
         }
         $this->setCreateRoute(function () {
             return route('pick.store',['event'=>$this->event,'league'=>$this->league,'season'=>$this->season]);
@@ -34,20 +39,26 @@ class PickForm extends Form
     }
     public function fields(): array
     {
-        return [
-            BelongsTo::make('pickable_id','Your pick...')->options($this->event->availablePicks($this->league, $this->season)),
+        $fields = [];
+        if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable(auth()->user(),$this->league)){
+            $fields = [
+                Boolean::make('joker',__('crud.picks.inputs.joker'))->customAttributes(['wire:model.live'=>'isJoker']),
+            ];
+        }
+        $fields = array_merge($fields,[
+            
+            BelongsTo::make('pickable_id',__('crud.picks.inputs.pickable'))->options($this->event->availablePicks($this->league, $this->season, joker: $this->isJoker)),
             Hidden::make('league_id',value: $this->league->id),
             Hidden::make('event_id',value: $this->event->id),
             Hidden::make('season_id',value: $this->season->id)
-        ];
+        ]);
+        return $fields;
     }
 
     public function actions(): array
     {
         return [
-            Action::make('Edit')->visibileOn(['show'])->setShowRoute(function () {
-                return route('event.edit', ['event' => $this->event]);
-            })->icon('fa-solid fa-pen-to-square'),
+            
         ];
     }
 }
