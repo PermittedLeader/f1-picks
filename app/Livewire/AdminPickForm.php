@@ -37,6 +37,7 @@ class AdminPickForm extends Component
             $this->selectedEventId = $pick->event_id;
             $this->selectedPickableId = $pick->pickable_id;
             $this->score = $pick->score;
+            $this->isJoker = $pick->joker;
         };
     }
 

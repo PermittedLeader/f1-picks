@@ -1,17 +1,17 @@
 <div>
     <x-tiffey::card>
         <x-slot:header>
-        Create a pick on behalf of a user
+        {{ __('crud.common.'.$this->method) }} a pick on behalf of a user
         </x-slot:header>
         <div>
-            <x-tiffey::input.select label="User" wire:model.live="selectedUserId">
+            <x-tiffey::input.select label="{{ trans_choice('crud.users.plural',1) }}" wire:model.live="selectedUserId">
                 <option value="">-</option>
                 @foreach ($this->visibleUsers() as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </x-tiffey::input.select>
             @isset($this->selectedUser)
-                <x-tiffey::input.select label="League" wire:model.live="selectedLeagueId">
+                <x-tiffey::input.select label="{{ trans_choice('crud.leagues.plural',1) }}" wire:model.live="selectedLeagueId">
                     <option value="">-</option>
                     @foreach ($this->userLeagues() as $league)
                         <option value="{{ $league->id }}">{{ $league->name }}</option>
@@ -19,7 +19,7 @@
                 </x-tiffey::input.select>
             @endisset
             @isset($this->league)
-                <x-tiffey::input.select label="Season" wire:model.live="selectedSeasonId">
+                <x-tiffey::input.select label="{{ trans_choice('crud.seasons.plural',1) }}" wire:model.live="selectedSeasonId">
                     <option value="">-</option>
                     @foreach ($this->leagueSeasons() as $season)
                         <option value="{{ $season->id }}">{{ $season->name }}</option>
@@ -27,7 +27,7 @@
                 </x-tiffey::input.select>
             @endisset
             @isset($this->season)
-                <x-tiffey::input.select label="Event" wire:model.live="selectedEventId">
+                <x-tiffey::input.select label="{{ trans_choice('crud.events.plural',1) }}" wire:model.live="selectedEventId">
                     <option value="">-</option>
                     @foreach ($this->seasonEvents() as $event)
                         <option value="{{ $event->id }}">{{ $event->name }}</option>
@@ -35,13 +35,13 @@
                 </x-tiffey::input.select>
             @endisset
             @isset($this->event)
-                @if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable($this->selectedUser, $this->league))
+                @if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable($this->selectedUser, $this->league) || (isset($this->selectedPickableId)&&$this->method == 'update'))
                     <x-forms::input.toggle
-                        label="Joker?"
+                        label="{{ __('crud.picks.inputs.joker') }}"
                         wire:model.live="isJoker"
                         />
                 @endif
-                <x-tiffey::input.select label="Pick" wire:model.live="selectedPickableId">
+                <x-tiffey::input.select label="{{ __('crud.picks.inputs.pickable') }}" wire:model.live="selectedPickableId">
                     <option value="">-</option>
                     @foreach ($this->eventPickables() as $pickable)
                         <option value="{{ $pickable->id }}">{{ $pickable->name }}</option>

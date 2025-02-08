@@ -10,6 +10,7 @@ return [
         'save'=>'Save',
         'saved'=>'Saved',
         'updated'=>'Updated',
+        'update'=>'Update',
         'deleted'=>'Deleted',
         'restored'=>'Restored',
         'remove'=>'Remove'
@@ -24,7 +25,11 @@ return [
         'plural'=>'Pickable|Pickables',
     ],
     'picks'=>[
-        'plural'=>'Pick|Picks'
+        'plural'=>'Pick|Picks',
+        'inputs'=>[
+            'pickable'=>'Pick',
+            'joker'=>'Is a joker?'
+        ]
     ],
     'seasons'=>[
         'plural'=>'Season|Seasons',
