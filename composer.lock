@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "125349514401979bf64ee3cf5ca4e45a",
+    "content-hash": "95679d7197b6ddb8a22fbbabab2b21d6",
     "packages": [
         {
             "name": "asdh/laravel-flatpickr",
@@ -3151,16 +3151,16 @@
         },
         {
             "name": "permittedleader/forms-for-laravel",
-            "version": "v2.7.1",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PermittedLeader/forms-for-laravel.git",
-                "reference": "fd7d3671c852ecd52345d453471f14acc5106f5c"
+                "reference": "72b48dcc0ccc798ddae526ba56116dedcd1e08fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/fd7d3671c852ecd52345d453471f14acc5106f5c",
-                "reference": "fd7d3671c852ecd52345d453471f14acc5106f5c",
+                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/72b48dcc0ccc798ddae526ba56116dedcd1e08fc",
+                "reference": "72b48dcc0ccc798ddae526ba56116dedcd1e08fc",
                 "shasum": ""
             },
             "require": {
@@ -3203,10 +3203,10 @@
             ],
             "description": "Forms for Laravel",
             "support": {
-                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v2.7.1",
+                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v3.0.1",
                 "issues": "https://github.com/PermittedLeader/forms-for-laravel/issues"
             },
-            "time": "2024-11-12T21:29:09+00:00"
+            "time": "2025-02-08T20:04:21+00:00"
         },
         {
             "name": "permittedleader/tiffey",
@@ -10754,12 +10754,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
