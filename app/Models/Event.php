@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\JokerRestrictionType;
 use Carbon\Carbon;
 use App\Traits\Validatable;
 use Illuminate\Database\Eloquent\Model;
@@ -59,7 +60,7 @@ class Event extends Model
         return $this->seasons()->where('seasons.id',$season->id)->first()->pickables();
     }
 
-    public function availablePicks(League $league, Season $season, ?User $user = null)
+    public function availablePicks(League $league, Season $season, ?User $user = null, bool $joker = false)
     {
         if(is_null($user)){
             $user = auth()->user();
@@ -69,8 +70,44 @@ class Event extends Model
             ->where('league_id', $league->id)
             ->where('season_id', $season->id)
             ->whereNot('event_id',$this->id)
-            ->get()->pluck('pickable.id');
-        return $this->pickables($season)->whereNotIn('pickables.id', $userPicks)->get();
+            ->get();
+        
+        $jokersUsed = $userPicks->where('joker',true)->count();
+        $available =  $this->pickables($season)->whereNotIn('pickables.id', $userPicks->pluck('pickable.id'))->get();
+
+        //Logic: If season has jokers and user has available jokers, check if certain choices are restricted to jokers or not, then check if any choice can use a joker.
+        if($season->hasJokers()){
+            $restrictions = $season->parse_joker_restrictions();
+
+            $jokerOnlyPicks = $available->whereIn(
+                'id',
+                isset($restrictions[JokerRestrictionType::ONLY_WITH_JOKER->value]) ? $restrictions[JokerRestrictionType::ONLY_WITH_JOKER->value] : []
+            );
+
+            $nonJokerOnlyPicks =  $available->whereIn(
+                'id',
+                isset($restrictions[JokerRestrictionType::NOT_WITH_JOKER->value]) ? $restrictions[JokerRestrictionType::NOT_WITH_JOKER->value] : []
+            );
+            
+            if($jokersUsed < $season->joker_pick_count){
+                if($joker){
+                    if(
+                        isset($restrictions[JokerRestrictionType::USE_JOKER_WITH_ANY_PICK->value]) &&
+                        $restrictions[JokerRestrictionType::USE_JOKER_WITH_ANY_PICK->value] == true
+                    ){
+                        return $available->whereNotIn('id',$nonJokerOnlyPicks->pluck('id'));
+                    } else {
+                        return $jokerOnlyPicks;
+                    }
+                } else {
+                    return $available->whereNotIn('id',$jokerOnlyPicks->pluck('id'));
+                }
+            } else {
+                return $available->whereNotIn('id',$jokerOnlyPicks->pluck('id'));
+            }
+        } else {
+            return $available;
+        }
     }
 
     /**
