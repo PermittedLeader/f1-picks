@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Facades\App\Models\League;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,5 +24,13 @@ class StoreLeagueRequest extends FormRequest
     public function rules(): array
     {
         return League::rules();
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'slug'=>$this->slug.'-'.Str::random(4),
+            'password'=>Str::random(10)
+        ]);
     }
 }

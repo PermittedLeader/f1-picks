@@ -13,13 +13,21 @@ return [
         'update'=>'Update',
         'deleted'=>'Deleted',
         'restored'=>'Restored',
-        'remove'=>'Remove'
+        'remove'=>'Remove',
+        'share'=>'Share...'
     ],
     'events'=>[
         'plural'=>'Event|Events'
     ],
     'leagues'=>[
-        'plural'=>'League|Leagues'
+        'plural'=>'League|Leagues',
+        'inputs'=>[
+            'name'=>'Name',
+            'description'=>'Description',
+            'slug'=>'Share code',
+            'public'=>'Make public',
+            'password'=>'Joining password'
+        ],
     ],
     'pickables'=>[
         'plural'=>'Pickable|Pickables',

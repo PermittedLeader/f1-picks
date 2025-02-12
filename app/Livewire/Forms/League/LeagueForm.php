@@ -5,6 +5,7 @@ use App\Models\League;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Actions\Action;
+use Permittedleader\Forms\View\Components\Fields\Boolean;
 use Permittedleader\Forms\View\Components\Fields\Markdown;
 
 class LeagueForm extends Form
@@ -26,8 +27,11 @@ class LeagueForm extends Form
     public function fields(): array
     {
         return [
-            Text::make('name',value: $this->league->name),
-            Markdown::make('description', value: $this->league->description)
+            Text::make('name',__('crud.leagues.inputs.name'),value: $this->league->name)->required(),
+            Markdown::make('description',__('crud.leagues.inputs.description'), value: $this->league->description),
+            Boolean::make('public',__('crud.leagues.inputs.public'),$this->league->public),
+            Text::make('slug',__('crud.leagues.inputs.slug'),$this->league->slug),
+            Text::make('password',__('crud.leagues.inputs.password'),$this->league->password)->visibileOn(['show'])
         ];
     }
 
