@@ -23,7 +23,6 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         UserCreated::class => [
-            AddUsersToF1League::class,
             SendWelcomeEmail::class,
             AddUsersToRoles::class
         ]
