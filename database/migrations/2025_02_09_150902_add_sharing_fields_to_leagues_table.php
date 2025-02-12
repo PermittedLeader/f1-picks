@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\League;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +18,12 @@ return new class extends Migration
             $table->boolean('public')->default(false);
             $table->string('password')->default(Str::random());
         });
+
+        foreach(League::all() as $league){
+            $league->update([
+                'slug'=>Str::slug($league->name)
+            ]);
+        }
     }
 
     /**
