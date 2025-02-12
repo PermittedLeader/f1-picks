@@ -53,6 +53,25 @@
                     
                 </x-tiffey::card>
             @endforeach
+            <form method="post" action="{{ route('league.code') }}">
+                @csrf
+            <x-tiffey::card>
+                <x-slot:header>
+                    {{ __('Join a private league') }}
+                </x-slot:header>
+                <x-tiffey::input
+                    name="slug"
+                    label="{{ __('crud.leagues.inputs.slug') }}"
+                    required
+                    />
+                <x-slot:footerActions>
+                    <x-tiffey::form-button color="bg-brand-mid">
+                        {{ __('app.join') }}
+                    </x-tiffey::button>
+                </x-slot:footerActions>
+                
+            </x-tiffey::card>
+            </form>
         </x-slot>
     </x-tiffey::card>
 </x-tiffey::layouts.main-layout>

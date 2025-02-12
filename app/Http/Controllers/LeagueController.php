@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\League;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreLeagueRequest;
 use App\Http\Requests\UpdateLeagueRequest;
-use App\Models\League;
 
 class LeagueController extends Controller
 {
@@ -37,6 +38,8 @@ class LeagueController extends Controller
         
         $league = League::create($request->validated());
 
+        $league->regeneratePassword();
+
         self::success($league->name.' '.__('has been successfully created'));
 
         return redirect(route('league.show',$league));
@@ -52,8 +55,11 @@ class LeagueController extends Controller
         if($league->seasons->count() < 1){
             self::warning('Leagues need at least a single season of events');
         }
-
-        return view('league.show', compact('league'));
+        if($league->members()->where('id',request()->user()->id)->exists()){
+            return view('league.show', compact('league'));
+        } else {
+            return view('league.password', compact('league'));
+        }
     }
 
     /**
@@ -96,10 +102,37 @@ class LeagueController extends Controller
 
     public function join(League $league)
     {
+        if(!$league->public)
+        {
+            abort(403);
+        }
+
         auth()->user()->leagues()->attach($league);
 
         self::success(__('You have joined :leagueName',['leagueName'=>$league->name]),__('Welcome'));
 
         return redirect(route('league.show',$league));
+    }
+
+    public function code(Request $request)
+    {
+        $league = League::where('slug', $request->input('slug'))->first();
+
+        return redirect(route('league.show',$league));
+    }
+
+    public function joinWithPassword(Request $request, League $league)
+    {
+        if($league->password == $request->input('password')){
+            $league->members()->attach(request()->user());
+
+            self::success(__('crud.leagues.joined'));
+
+            return redirect(route('league.show', $league));
+        } else {
+            self::warning(__('crud.leagues.incorrect_password'));
+
+            return redirect()->back();
+        }
     }
 }

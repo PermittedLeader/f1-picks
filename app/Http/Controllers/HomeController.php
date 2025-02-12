@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $leagues = auth()->user()->leagues;
-        $availableLeagues = League::joinable(auth()->user())->get();
+        $availableLeagues = League::joinable(auth()->user())->public()->get();
         return view('home', compact('leagues','availableLeagues'));
     }
 }
