@@ -16,6 +16,7 @@
         </div>
         
     </x-tiffey::card>
+    
     @if($league->seasons->count() > 0)
     <x-tiffey::card collapsible="true">
         <x-slot:header><x-tiffey::icon icon="fa-solid fa-ranking-star" label="league table" /> League Table</x-slot:header>
@@ -45,6 +46,15 @@
     <x-tiffey::card collapsible="true" open="false">
         <x-slot:header>Season leaderboard</x-slot:header>
         <livewire:league.season-leaderboard :$league lazy />
+    </x-tiffey::card>
+    @endif
+    @if(!$league->public)
+    <x-tiffey::card collapsible="true" open="false">
+        <x-slot:header>
+            {{ __('crud.common.share') }}
+        </x-slot:header>
+        <x-forms::show.text label="{{ __('crud.leagues.inputs.slug') }}" value="{{ $league->slug }}" />
+        <x-forms::show.text label="{{ __('crud.leagues.inputs.password') }}" value="{{ $league->password }}" />
     </x-tiffey::card>
     @endif
 </x-tiffey::layouts.main-layout>

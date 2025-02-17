@@ -3,14 +3,17 @@
 namespace App\Models;
 
 use App\Traits\Validatable;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Permittedleader\Tables\Traits\Searchable;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class League extends Model
 {
@@ -18,16 +21,22 @@ class League extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'public',
+        'slug'
     ];
 
     public function rules(): array
     {
         return [
             'name'=>'required|string|max:255',
-            'description'=>'nullable'
+            'description'=>'nullable',
+            'public'=>'boolean',
+            'slug'=> Rule::unique('leagues','slug')->ignore($this)
         ];
     }
+
+    
 
     /**
      * The seasons that belong to the League
@@ -53,7 +62,12 @@ class League extends Model
     {
         $builder->whereDoesntHave("members", function ($query) use ($user) {
             $query->where("users.id", $user->id);
-        })->get();
+        });
+    }
+
+    public function scopePublic(Builder $builder)
+    {
+        $builder->where('public',true);
     }
 
     public function events()
@@ -69,5 +83,14 @@ class League extends Model
     public function admins(): MorphToMany
     {
         return $this->morphToMany(User::class,'adminable');
+    }
+
+    public function regeneratePassword(): bool
+    {
+        $this->forceFill([
+            'password'=>Str::random(10)
+        ]);
+
+        return $this->save();
     }
 }

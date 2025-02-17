@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\League;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PickController;
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('season', SeasonController::class);
     Route::resource('league', LeagueController::class);
     Route::get('/league/{league}/join', [LeagueController::class,'join'])->name('league.join');
+    Route::post('/join/league', [LeagueController::class,'code'])->name('league.code');
+    Route::post('league/{league}/join/password', [LeagueController::class,'joinWithPassword'])->name('league.password');
     Route::resource('event', EventController::class);
     Route::get('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'create'])->name('pick.create');
     Route::post('/league/{league}/season/{season}/event/{event}/pick',[PickController::class, 'store'])->name('pick.store');
