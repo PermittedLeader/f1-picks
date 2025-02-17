@@ -31,12 +31,20 @@ return [
     ],
     'pickables'=>[
         'plural'=>'Pickable|Pickables',
+        'inputs'=>[
+            'name'=>'Name',
+            'team'=>'Team',
+            'avatar'=>'Avatar',
+            'short_name'=>'Short Name'
+        ]
     ],
     'picks'=>[
         'plural'=>'Pick|Picks',
         'inputs'=>[
             'pickable'=>'Pick',
-            'joker'=>'Is a joker?'
+            'joker'=>'Is a joker?',
+            'score'=>'Score',
+            'score_with_joker'=>'Joker Score'
         ]
     ],
     'seasons'=>[

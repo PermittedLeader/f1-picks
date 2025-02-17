@@ -12,6 +12,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(!auth()->user())
+        {
+            redirect('/');
+        }
         $leagues = auth()->user()->leagues;
         $availableLeagues = League::joinable(auth()->user())->public()->get();
         return view('home', compact('leagues','availableLeagues'));
