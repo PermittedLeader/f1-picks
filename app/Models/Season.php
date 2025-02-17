@@ -42,9 +42,9 @@ class Season extends Model
         );
     }
 
-    public function parse_joker_restrictions()
+    public function parse_joker_restrictions(): array
     {
-        return $this->has_joker_restrictions ? collect(json_decode($this->joker_restrictions)) : false;
+        return $this->has_joker_restrictions ? json_decode($this->joker_restrictions) : [];
     }
 
     /**

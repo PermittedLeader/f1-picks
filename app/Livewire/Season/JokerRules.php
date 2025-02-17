@@ -23,7 +23,7 @@ class JokerRules extends Component
     public function mount()
     {
         $this->pick_count = $this->season->joker_pick_count;
-        $this->joker_restrictions = $this->season->parse_joker_restrictions()->toArray();
+        $this->joker_restrictions = $this->season->parse_joker_restrictions();
     }
 
     #[Computed()]
