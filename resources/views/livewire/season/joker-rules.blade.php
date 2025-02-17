@@ -38,6 +38,7 @@
                 label="{{ __('crud.seasons.jokers.restrictions') }}"
                 wire:model="addNewRestrictionType"
                 >
+                <option value="">Select...</option>
                 @foreach(\App\Enums\JokerRestrictionType::cases() as $restriction_type)
                 <option 
                     value="{{ $restriction_type->value }}" 
