@@ -14,7 +14,7 @@ class PickableOrderController extends Controller
     {
         $this->authorize('update',$season);
 
-        $season = Season::find($season->id)->with('pickables')->first();
+        $season = Season::where('id',$season->id)->with('pickables')->first();
 
         return view('season.order.edit', compact('season'));
     }
