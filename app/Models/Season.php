@@ -44,7 +44,7 @@ class Season extends Model
 
     public function parse_joker_restrictions(): array
     {
-        return $this->has_joker_restrictions ? json_decode($this->joker_restrictions) : [];
+        return $this->has_joker_restrictions ? json_decode($this->joker_restrictions,true) : [];
     }
 
     /**

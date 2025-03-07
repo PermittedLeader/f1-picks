@@ -41,7 +41,7 @@ class Pick extends Model
             'season_id'=>'required|exists:seasons,id',
             'pickable_id'=>'required|exists:pickables,id',
             'user_id'=>'required|exists:users,id',
-            'joker'=>'required|boolean'
+            'joker'=>'sometimes|boolean'
         ];
     }
 
