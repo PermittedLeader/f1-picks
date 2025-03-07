@@ -36,7 +36,7 @@ class PickForm extends Form
     public function fields(): array
     {
         $fields = [];
-        if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable(auth()->user(),$this->league) || $this->pick->joker){
+        if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable(auth()->user(),$this->league) || ($this->method == "update" && $this->pick?->joker)){
             $fields = [
                 Boolean::make('joker',__('crud.picks.inputs.joker'))->customAttributes(['wire:model.live'=>'isJoker']),
             ];
