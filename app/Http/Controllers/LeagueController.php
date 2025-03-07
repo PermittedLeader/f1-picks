@@ -38,6 +38,8 @@ class LeagueController extends Controller
         
         $league = League::create($request->validated());
 
+        $league->members()->attach(request()->user());
+
         $league->admins()->attach(request()->user());
 
         $league->regeneratePassword();
