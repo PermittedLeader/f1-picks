@@ -26,6 +26,7 @@ class UpdatePickRequest extends FormRequest
 
     public function prepareForValidation()
     {
-        $this->merge(['user_id'=>auth()->id()]);
+        $this->mergeIfMissing(['joker'=>false]);
+        $this->merge(['user_id'=>auth()->id(),'joker'=>(bool) $this->input('joker')]);
     }
 }

@@ -22,14 +22,10 @@ class PickForm extends Form
     public Season $season;
     public bool $isJoker = false;
 
-    public function boot(?Pick $pick = null)
+    public function boot(Pick $pick = null)
     {
         $this->label = trans_choice('crud.picks.plural',1);
-        
-        if (!is_null($pick)) {
-            $this->pick = $pick;
-            $this->isJoker = $this->pick->joker ?? false;
-        }
+        $this->isJoker = $this->pick->joker ?? false;
         $this->setCreateRoute(function () {
             return route('pick.store',['event'=>$this->event,'league'=>$this->league,'season'=>$this->season]);
         });
@@ -40,7 +36,7 @@ class PickForm extends Form
     public function fields(): array
     {
         $fields = [];
-        if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable(auth()->user(),$this->league)){
+        if($this->season->hasJokers() && $this->season->userHasJokerPickAvailable(auth()->user(),$this->league) || $this->pick->joker){
             $fields = [
                 Boolean::make('joker',__('crud.picks.inputs.joker'))->customAttributes(['wire:model.live'=>'isJoker']),
             ];
