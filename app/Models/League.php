@@ -23,7 +23,7 @@ class League extends Model
         'name',
         'description',
         'public',
-        'slug'
+        'slug',
     ];
 
     public function rules(): array

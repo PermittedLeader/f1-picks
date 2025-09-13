@@ -10,6 +10,8 @@ use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
+use Permittedleader\Tables\View\Components\Columns\Boolean;
+use Permittedleader\Tables\View\Components\Columns\SoftDeletes;
 
 class IndexTable extends Table
 {
@@ -17,7 +19,7 @@ class IndexTable extends Table
 
     public bool $isExportable = false;
 
-    public bool $isFilterable = false;
+    public bool $isFilterable = true;
 
     public function query(): Builder
     {
@@ -27,7 +29,7 @@ class IndexTable extends Table
     public function columns(): array
     {
         return [
-            Column::make('name')->sortable(),
+            Column::make('name')->sortable()
         ];
     }
 
@@ -36,7 +38,7 @@ class IndexTable extends Table
         return [
             Action::show('league.show'),
             Action::edit('league.edit'),
-            Action::delete('league.destroy'),
+            Action::delete('league.destroy')
         ];
     }
 }

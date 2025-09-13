@@ -104,7 +104,8 @@ class AdminPickForm extends Component
             'league_id'=>$this->selectedLeagueId,
             'season_id'=>$this->selectedSeasonId,
             'event_id'=>$this->selectedEventId,
-            'pickable_id'=>$this->selectedPickableId
+            'pickable_id'=>$this->selectedPickableId,
+            'joker'=>$this->isJoker
         ]);
 
         self::success(title: 'Success',message:'Pick created.');
@@ -122,7 +123,8 @@ class AdminPickForm extends Component
             'season_id'=>$this->selectedSeasonId,
             'event_id'=>$this->selectedEventId,
             'pickable_id'=>$this->selectedPickableId,
-            'score'=>$this->score
+            'score'=>$this->score,
+            'joker'=>$this->isJoker,
         ]);
 
         self::success(title: 'Success',message:'Pick updated.');
