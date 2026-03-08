@@ -26,24 +26,21 @@ class EventsTable extends Table
 
     public function query(): Builder
     {
-        return $this->league->events()->with('picks', function(Builder $query) {
+        return $this->league->events()->with(['picks' => function(Builder $query) {
             $query->where('user_id',auth()->id());
             $query->where('league_id',$this->league->id);
-        });
+            $query->with('pickable');
+        }]);
     }
 
     public function columns(): array
     {
         return [
-            Column::make('name')->sortable()->filterable(),
-            Column::make('season')->formatDisplay(function($value){
-                return $value->name;
-            }),
+            Column::make('name')->sortable()->filterable()->visibleOnMobile(),
+            Column::make('season.name','Season'),
             Column::make('date')->component('date')->sortable(),
             Column::make('pick_date','Pick by')->component('timeDiffForHumans')->sortable(),
-            Column::make('*','Pick')->formatDisplay(function($row){
-                return Pick::where('user_id',auth()->id())->where('season_id',$row->season->id)->where('event_id',$row->id)->where('league_id',$this->league->id)->first()?->pickable->name ?? 'No pick entered';
-            })
+            Column::make('picks.0.pickable.name','Pick')->visibleOnMobile()->formatDisplay(fn($value)=>$value ?? 'No pick entered')
         ];
     }
 
