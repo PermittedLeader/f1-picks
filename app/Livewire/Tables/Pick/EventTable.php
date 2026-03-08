@@ -38,8 +38,8 @@ class EventTable extends Table
     public function columns(): array
     {
         return [
-            BelongsTo::make('user')->model(User::class)->sortable()->filterable(),
-            BelongsTo::make('pickable','Pick')->model(Pickable::class)->sortable()->filterable(),
+            BelongsTo::make('user')->model(User::class)->sortable()->filterable()->visibleOnMobile(),
+            BelongsTo::make('pickable','Pick')->model(Pickable::class)->sortable()->filterable()->visibleOnMobile(),
             Column::make('score')->sortable()
         ];
     }
