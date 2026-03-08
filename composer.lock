@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fac06353bdaee0b489d74858680d490e",
+    "content-hash": "40a9ad012a86b97ee5fae689e52a0603",
     "packages": [
         {
             "name": "asdh/laravel-flatpickr",
@@ -3292,10 +3292,16 @@
         {
             "name": "permittedleader/forms-for-laravel",
             "version": "4.0.x-dev",
-            "dist": {
-                "type": "path",
-                "url": "../laraforms",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PermittedLeader/forms-for-laravel.git",
                 "reference": "679325b68a5154d587f336eb1f1018b84071e841"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PermittedLeader/forms-for-laravel/zipball/679325b68a5154d587f336eb1f1018b84071e841",
+                "reference": "679325b68a5154d587f336eb1f1018b84071e841",
+                "shasum": ""
             },
             "require": {
                 "asdh/laravel-flatpickr": "^2.2",
@@ -3336,10 +3342,11 @@
                 }
             ],
             "description": "Forms for Laravel",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/PermittedLeader/forms-for-laravel/tree/v3.3.5",
+                "issues": "https://github.com/PermittedLeader/forms-for-laravel/issues"
+            },
+            "time": "2025-10-20T18:28:31+00:00"
         },
         {
             "name": "permittedleader/tiffey",
@@ -3458,10 +3465,16 @@
         {
             "name": "permittedleader/tiffey-tables",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PermittedLeader/tiffey-tables.git",
+                "reference": "5d0ab08c96d25fffa0ab26128506d5392b15bf90"
+            },
             "dist": {
-                "type": "path",
-                "url": "../tables-for-laravel",
-                "reference": "e18fcf6cfef9e691afdcff6f1abe6f26b119cda3"
+                "type": "zip",
+                "url": "https://api.github.com/repos/PermittedLeader/tiffey-tables/zipball/5d0ab08c96d25fffa0ab26128506d5392b15bf90",
+                "reference": "5d0ab08c96d25fffa0ab26128506d5392b15bf90",
+                "shasum": ""
             },
             "require": {
                 "laravel/framework": ">=10.0",
@@ -3477,6 +3490,7 @@
                 "pestphp/pest-plugin-laravel": "^2.3",
                 "pestphp/pest-plugin-livewire": "^2.1"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3490,6 +3504,7 @@
                     "Permittedleader\\Tables\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-only"
             ],
@@ -3500,10 +3515,11 @@
                 }
             ],
             "description": "Tables for Laravel using the Tiffey layout engine",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/PermittedLeader/tiffey-tables/issues",
+                "source": "https://github.com/PermittedLeader/tiffey-tables/tree/v5.1.4"
+            },
+            "time": "2025-11-10T11:02:38+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
