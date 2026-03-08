@@ -13,9 +13,12 @@ use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\View\Components\Columns\BelongsTo;
+use Permittedleader\Tables\Traits\SoftDeletes;
+use Permittedleader\Tables\View\Components\Columns\Boolean;
 
 class IndexTable extends Table
 {
+    use SoftDeletes;
     public bool $isExportable = false;
 
     public bool $isFilterable = true;
@@ -33,6 +36,7 @@ class IndexTable extends Table
             BelongsTo::make('league')->model(League::class)->sortable()->filterable(),
             BelongsTo::make('season')->model(Season::class)->sortable()->filterable(),
             BelongsTo::make('event')->model(Event::class)->sortable()->filterable(),
+            Boolean::make('joker',__('crud.picks.inputs.joker')),
             BelongsTo::make('pickable','Pick')->model(Pickable::class)->sortable()->filterable(),
             Column::make('created_at','Pick time')->component('date')
         ];

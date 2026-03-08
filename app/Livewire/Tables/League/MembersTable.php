@@ -19,6 +19,8 @@ class MembersTable extends Table
 
     public bool $isFilterable = false;
 
+    public bool $selectable = true;
+
     public int $perPage = 25;
 
     public int $topNRemaining = 5;
@@ -75,8 +77,8 @@ class MembersTable extends Table
     {
         $columns =  [
             Column::make('rank')->sortable(),
-            Column::make('name')->sortable(),
-            Column::make('score', 'Score')->sortable()
+            Column::make('name')->sortable()->visibleOnMobile(),
+            Column::make('score', 'Score')->visibleOnMobile()
         ];
         if($this->season_id){
             $columns[] = Column::make('remainingTopPicks','Best '.$this->topNRemaining.' picks remaining');

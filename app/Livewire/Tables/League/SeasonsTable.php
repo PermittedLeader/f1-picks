@@ -6,11 +6,11 @@ use App\Models\Pick;
 use App\Models\League;
 use App\Models\Season;
 use App\Traits\FlashMessages;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\Tables\Http\Livewire\Table;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
-use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
+use Permittedleader\Tables\View\Components\Columns\Collection;
 
 class SeasonsTable extends Table
 {
@@ -33,9 +33,7 @@ class SeasonsTable extends Table
     {
         return [
             Column::make('name')->sortable()->filterable(),
-            Column::make('events')->formatDisplay(function($value){
-                return $value->count();
-            })
+            Collection::make('events')
         ];
     }
 

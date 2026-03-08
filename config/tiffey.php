@@ -15,6 +15,28 @@ return [
 
     'card-bg-color' => 'bg-white bg-opacity-95 dark:bg-gray-900 dark:bg-opacity-35',
 
+    'buttons' => [
+        'default' => [
+            'text-styles'=> '',
+            'bg-color' => 'bg-gray-100',
+        ],
+    ],
+
+    'app' => [
+        'bg-color' => 'bg-gradient-to-br from-secondary-dark via-90% to-secondary-mid',
+        'text-color' => 'text-white',
+        'name-color'=> 'text-brand-mid', #defaults to app-text-color if unset
+        'name-color-login'=>'text-brand-mid', #defaults to app-text-color
+        'rounded' => 'rounded-tl-xl rounded-br-xl',
+        'border-color' => 'border-secondary-light',
+    ],
+
+    'card' => [
+        'border' => 'border-t-4 border-secondary-light',
+        'bg-color' => 'bg-white bg-opacity-95 dark:bg-gray-900 dark:bg-opacity-35',
+        'text-color' => 'text-black dark:text-white',
+    ],
+
     'colors'=>[
         "no" => "#ec008e",
         "yes"=>"#8cc73f",

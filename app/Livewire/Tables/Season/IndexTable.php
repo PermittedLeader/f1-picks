@@ -10,9 +10,11 @@ use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
+use Permittedleader\Tables\Traits\SoftDeletes;
 
 class IndexTable extends Table
 {
+    use SoftDeletes;
     public bool $isSearchable = true;
 
     public bool $isExportable = true;
@@ -28,6 +30,7 @@ class IndexTable extends Table
     {
         return [
             Column::make('name')->sortable(),
+            BelongsToMany::make('events',trans_choice('crud.events.plural',2))->itemText(trans_choice('crud.events.plural',2))
         ];
     }
 

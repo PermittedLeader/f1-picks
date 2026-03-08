@@ -9,7 +9,11 @@ export default {
         './resources/views/**/*.blade.php',
         './config/*.php'
     ],
-
+safelist: [
+  {
+      pattern: /grid-cols-./,
+  }
+],
     theme: {
         extend: {
             fontFamily: {
