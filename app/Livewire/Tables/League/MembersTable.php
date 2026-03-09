@@ -19,7 +19,7 @@ class MembersTable extends Table
 
     public bool $isFilterable = false;
 
-    public bool $selectable = true;
+    public bool $selectable = false;
 
     public int $perPage = 25;
 
@@ -76,7 +76,7 @@ class MembersTable extends Table
     public function columns(): array
     {
         $columns =  [
-            Column::make('rank')->sortable(),
+            Column::make('rank')->sortable()->visibleOnMobile(),
             Column::make('name')->sortable()->visibleOnMobile(),
             Column::make('score', 'Score')->visibleOnMobile()
         ];
