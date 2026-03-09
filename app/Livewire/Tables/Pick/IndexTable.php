@@ -23,6 +23,8 @@ class IndexTable extends Table
 
     public bool $isFilterable = true;
 
+    public bool $selectable = true;
+
     public function query(): Builder
     {
         return Pick::query();
@@ -48,6 +50,21 @@ class IndexTable extends Table
             Action::edit('pick.adminEdit')->gate('adminUpdate'),
             Action::delete('pick.destroy')
         ];
+    }
+
+    public function bulkActions(): array
+    {
+        return [
+            Action::makeAction('deleteSelected','Delete')->gate('delete picks')->icon('fa-solid fa-trash')->showLabel()->color('bg-danger-light')
+        ];
+    }
+
+    public function deleteSelected(){
+        $this->authorize('delete picks');
+
+        Pick::destroy($this->selectedIds);
+
+        return $this->success('Deleted');
     }
 
     public function tableActions(): array
