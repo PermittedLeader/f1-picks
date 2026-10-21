@@ -7,7 +7,6 @@ use App\Events\UserCreated;
 
 use App\Traits\Validatable;
 use Illuminate\Validation\Rule;
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,7 +20,7 @@ use Permittedleader\Tables\Traits\Searchable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, Validatable, HasRoles, SoftDeletes, Searchable;
+    use  HasFactory, Notifiable, Validatable, HasRoles, SoftDeletes, Searchable;
 
     /**
      * The attributes that are mass assignable.

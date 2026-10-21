@@ -4,12 +4,13 @@ namespace App\Livewire\Forms\Pick;
 use App\Models\Pick;
 use App\Models\Event;
 use App\Models\League;
+use App\Models\Pickable;
 use App\Models\Season;
 use Permittedleader\Forms\Http\Livewire\Form;
 use Permittedleader\Forms\View\Components\Fields\Text;
 use Permittedleader\Forms\View\Components\Fields\Hidden;
 use Permittedleader\Forms\View\Components\Actions\Action;
-use Permittedleader\Forms\View\Components\Fields\BelongsTo;
+use Permittedleader\Forms\View\Components\Fields\BelongsToSelect;
 use Permittedleader\Forms\View\Components\Fields\Boolean;
 
 use function PHPUnit\Framework\isNull;
@@ -22,7 +23,7 @@ class PickForm extends Form
     public Season $season;
     public bool $isJoker = false;
 
-    public function boot(Pick $pick = null)
+    public function boot(Pick|null $pick = null)
     {
         $this->label = trans_choice('crud.picks.plural',1);
         $this->isJoker = $this->pick->joker ?? false;
@@ -43,7 +44,7 @@ class PickForm extends Form
         }
         $fields = array_merge($fields,[
             
-            BelongsTo::make('pickable_id',__('crud.picks.inputs.pickable'))->options($this->event->availablePicks($this->league, $this->season, joker: $this->isJoker)),
+            BelongsToSelect::make('pickable_id',__('crud.picks.inputs.pickable'),$this->pick->pickable->id)->scope(["type"=>"column", "column"=>'id',"value"=>$this->event->availablePicks($this->league, $this->season, joker: $this->isJoker)->pluck('id'),'operator' => 'in'])->model(Pickable::class),
             Hidden::make('league_id',value: $this->league->id),
             Hidden::make('event_id',value: $this->event->id),
             Hidden::make('season_id',value: $this->season->id)

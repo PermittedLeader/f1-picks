@@ -1,3 +1,6 @@
+@push('scripts')
+    @fluxScripts();
+@endpush
 <div class="flex flex-col md:flex-row justify-between" x-data="{ open: false }" @click.outside="open = false">
     <div class="flex flex-col md:flex-row md:gap-2 content-center">
         <div class="flex flex-row gap-2 justify-between md:place-content-center">

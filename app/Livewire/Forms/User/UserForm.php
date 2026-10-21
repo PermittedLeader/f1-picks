@@ -26,7 +26,7 @@ class UserForm extends Form
     {
         return [
             Text::make('name',value: $this->user->name),
-            Text::make('email', value: $this->user->email)
+            Text::make('email', value: $this->user->email),
         ];
     }
 
