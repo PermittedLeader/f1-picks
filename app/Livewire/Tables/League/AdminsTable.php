@@ -6,7 +6,8 @@ use App\Models\User;
 use App\Models\League;
 use App\Traits\FlashMessages;
 use Permittedleader\Tables\Http\Livewire\Table;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Permittedleader\Tables\Http\Livewire\AttachedTable;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
@@ -15,7 +16,7 @@ class AdminsTable extends AttachedTable
 {
     public bool $adminsListModal = false;
 
-    public function query(): Builder
+    public function query(): Relation
     {
         return $this->model->admins();
     }

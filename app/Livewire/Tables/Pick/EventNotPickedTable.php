@@ -10,7 +10,7 @@ use App\Models\Season;
 use App\Models\Pickable;
 use Carbon\Carbon;
 use Livewire\Attributes\Reactive;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Computed;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;

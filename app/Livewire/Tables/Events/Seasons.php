@@ -2,7 +2,8 @@
 
 namespace App\Livewire\Tables\Events;
 
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Permittedleader\Tables\Http\Livewire\AttachedTable;
 use Permittedleader\Tables\View\Components\Columns\Column;
 
@@ -12,7 +13,7 @@ class Seasons extends AttachedTable
 
     public string $namespace = __NAMESPACE__;
 
-    public function query(): Builder
+    public function query(): Relation
     {
         return $this->model->{$this->relationshipName}();
     }

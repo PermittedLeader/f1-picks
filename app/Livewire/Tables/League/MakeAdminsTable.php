@@ -2,11 +2,12 @@
 
 namespace App\Livewire\Tables\League;
 
-use App\Models\User;
 use App\Models\League;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\DB;
 use Permittedleader\FlashMessages\FlashMessages;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Permittedleader\Tables\Http\Livewire\BelongsToManyTable;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
@@ -14,7 +15,7 @@ use Permittedleader\Tables\View\Components\Columns\Column;
 
 class MakeAdminsTable extends BelongsToManyTable
 {
-    public function query(): Builder
+    public function query(): Relation
     {
         return $this->model->members();
     }

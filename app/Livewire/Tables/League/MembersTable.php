@@ -5,7 +5,8 @@ namespace App\Livewire\Tables\League;
 use App\Models\League;
 use App\Traits\FlashMessages;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Reactive;
 use Permittedleader\Tables\Http\Livewire\Table;
@@ -34,7 +35,7 @@ class MembersTable extends Table
 
     public string $exportName = 'users-export';
 
-    public function query(): Builder
+    public function query(): Relation
     {
         return $this->league->members()
         ->join("picks", "users.id", "=", "picks.user_id")

@@ -2,15 +2,16 @@
 
 namespace App\Livewire\Tables\League;
 
-use App\Models\Pick;
 use App\Models\League;
+use App\Models\Pick;
 use App\Models\Season;
 use App\Traits\FlashMessages;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
-use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
+use Permittedleader\Tables\View\Components\Columns\Column;
 
 class EventsTable extends Table
 {
@@ -24,9 +25,9 @@ class EventsTable extends Table
 
     public League $league;
 
-    public function query(): Builder
+    public function query(): Relation
     {
-        return $this->league->events()->with(['picks' => function(Builder $query) {
+        return $this->league->events()->with(['picks' => function( $query) {
             $query->where('user_id',auth()->id());
             $query->where('league_id',$this->league->id);
             $query->with('pickable');

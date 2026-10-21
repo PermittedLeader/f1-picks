@@ -5,7 +5,8 @@ namespace App\Livewire\Tables\Season;
 use App\Models\Event;
 use App\Models\Season;
 use App\Models\Pickable;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
@@ -23,7 +24,7 @@ class PickableTable extends Table
 
     public bool $pickableListModal = false;
 
-    public function query(): Builder
+    public function query(): Relation
     {
         return $this->season->pickables()->withPivot(['order']);
     }

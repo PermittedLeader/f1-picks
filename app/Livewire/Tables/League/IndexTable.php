@@ -5,7 +5,7 @@ namespace App\Livewire\Tables\League;
 use App\Models\League;
 use App\Models\Season;
 use App\Traits\FlashMessages;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;

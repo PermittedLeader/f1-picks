@@ -3,7 +3,7 @@ namespace App\Livewire\Tables\League;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\Http\Livewire\BelongsToManyTable;
 

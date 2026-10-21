@@ -8,7 +8,7 @@ use App\Models\Event;
 use App\Models\League;
 use App\Models\Season;
 use App\Models\Pickable;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\Reactive;
 use Permittedleader\Tables\Http\Livewire\Table;
 use Permittedleader\Tables\View\Components\Columns\Column;

@@ -4,7 +4,7 @@ namespace App\Livewire\Tables\Event;
 
 use App\Models\Event;
 use Permittedleader\Tables\Http\Livewire\Table;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Permittedleader\Tables\View\Components\Actions\Action;
 use Permittedleader\Tables\View\Components\Columns\Column;
 use Permittedleader\Tables\View\Components\Columns\BelongsToMany;
